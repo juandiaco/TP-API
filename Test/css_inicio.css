@@ -1,0 +1,75 @@
+body{
+    background: #0E9594;
+}
+
+header{
+    padding-top: 5%;
+}
+
+h1{
+    color: #F5DFBB;
+    font-family: 'Outfit';
+    font-weight: 600;
+    font-size: 100px;
+    line-height: 100px;
+    text-align: center;
+    margin-bottom: 0px;
+
+    
+}
+
+h2{
+    font-family: 'Outfit';
+    font-weight: 400;
+    font-size: 15px;
+    text-align: center;
+    margin-top: -1px;
+}
+
+.barrita{
+    padding-top: 2%;
+}
+
+
+.barra{
+    display: inline-flex;
+	padding:30px;
+    margin: auto;
+    
+}
+
+
+.barra button{
+    background: #F5DFBB;
+    border: 1px solid #F5DFBB;
+    box-sizing: border-box;
+    font-family: 'Outfit';
+    font-size: smaller;
+    border-radius: 3.2px;
+}
+
+.barra button:hover{
+
+    background: #d6c9b3;
+
+}
+
+.barra .iniciar{
+    
+}
+
+
+article{
+    padding-top: 5%;
+    align-items: center;
+}
+
+
+
+.carousel-item img{
+    height: 50%;
+}
+
+
+
+
