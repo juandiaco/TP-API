@@ -1,29 +1,32 @@
-<!DOCTYPE html>
-<html>
-    <head> 
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-        <title>Conect.ar - Registrar</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="registrar.css">
-        
-    </head>
-    <body>
-          
-        <h1>Las mejores recetas en un sólo lugar</h1>
+    <title>Conect.ar - Registrar</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="registrar.css">
+  </head>
 
-            <form>
-
-                <h2>Creá tu perfil</h2>
-
+    <body>  
+        <div id="titulo"> Las mejores recetas en un sólo lugar. </div>
+        <div id="subtitulo">Creá tu perfil</div>
+        </div class="sidebar">
+            <form id="formRegistro">
                 <h3>Nombre</h3>
                 <input type="text" required>
 
-                <h3>Corre electrónico</h3>
+                <h3>Correo electrónico</h3>
                 <input type="email" required>
 
                 <h3>Contraseña</h3>
                 <input type="password" required>
-
 
                 <h3>Confirmar contraseña</h3>
                 <input type="password" required>
@@ -31,10 +34,41 @@
                 <h3>Fecha de nacimiento</h3>
                 <input type="date" required>
 
-                <button>Finalizar</button>
-                
-
+                <button type="submit">Finalizar</button>
             </form>
+        </div>
+
+        <div class="card" id="card1" style="width: 18rem;">
+            <img class="card-img-top" src="comidas\pollo.jpg" alt="Aca va la imagen">
+            <div class="card-body">
+              <h5 class="card-title">Pollo con papas</h5>
+              <p class="card-text">
+                  Chefcito: Luciana Souto
+                  <li>Dificultad: Fácil </li>
+                  <li>Calificación: 5 estrellas </li>
+                  <li>Tiempo estimado: 60 minutos</li>
+                  <br>
+                #pollo #recetafacil #cena
+              </p>
+              <a href="#" class="btn btn-primary">Ver receta</a>
+            </div>
+          </div>
+
+          <div class="card" id="card2" style="width: 18rem;">
+            <img class="card-img-top" src="comidas\cookies.jpg" alt="Aca va la imagen">
+            <div class="card-body">
+              <h5 class="card-title">Cookies de Chocolate</h5>
+              <p class="card-text">
+                  Chefcito: Juan Diaco
+                  <li>Dificultad: Intermedia </li>
+                  <li>Calificación: 5 estrellas </li>
+                  <li>Tiempo estimado: 45 minutos</li>
+                  <br>
+                #cookies #merienda #chocolate
+              </p>
+              <a href="#" class="btn btn-primary">Ver receta</a>
+            </div>
+          </div>
         
         
 
