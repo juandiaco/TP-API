@@ -51,7 +51,7 @@ form{
 
 
 form h2{
-    padding-left: 70px;
+    padding-left: 50px;
     
 }
 
@@ -93,7 +93,7 @@ form button{
     position: absolute;
     width: 179px;
     height: 62px;
-    left: 231px;
+    left: 150px;
     top: 813px;
 
     background: #F2542D;
@@ -102,6 +102,11 @@ form button{
     border-radius: 3.2px;
     margin-bottom: 50px;
 }
+
+form button:hover{
+    background: #f04014;
+}
+
 
 #card1{
     display: flex;
