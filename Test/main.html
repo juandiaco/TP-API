@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="uft-8">
+        <title>Main</title>
+        <link rel="stylesheet" href="bootstrap.min.css">
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>  
+        <!-- COMIENZO NAVBAR-->
+        <nav class="navbar navbar-expand-lg navbar bg barra">
+            <div class="container-fluid">
+                <!-- LOGO-->
+                <nav class="navbar navbar bg">
+                    <div class="container">
+                      <a class="navbar-brand" href="#">
+                        <img src="logo.jpg" alt="" width="30" height="24">
+                      </a>
+                    </div>
+                </nav> 
+
+                <!-- BOTON COLAPSAR-->
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- CAMPO DE BUSQUEDA-->
+
+                <div class="collapse navbar-collapse justify-content-center buscar" id="navbarSupportedContent">
+                    <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                </div>
+
+                <!-- OPCIONES MENU -->
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                        
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Crear</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Mis favoritos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Mis recetas</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            *Nombre de usuario*
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        
+                        
+                </div>
+                
+              
+            </div>
+          </nav>
+        <!-- Recetas -->
+        
+        <div class="container receta">
+            <div class="row">
+                <div class="col-6">
+                    <div class="card" id="card1" style="width: 18rem;">
+                        <img class="card-img-top" src="comidas\pollo.jpg" alt="Aca va la imagen">
+                        <div class="card-body">
+                          <h5 class="card-title">Pollo con papas</h5>
+                          <p class="card-text">
+                              Chefcito: Luciana Souto
+                              <li>Dificultad: Fácil </li>
+                              <li>Calificación: 5 estrellas </li>
+                              <li>Tiempo estimado: 60 minutos</li>
+                              <br>
+                            #pollo #recetafacil #cena
+                          </p>
+                          <a href="#" class="btn btn-primary">Ver receta</a>
+                        </div>
+                    </div>
+   
+                </div>
+
+                <div class="col-6">
+                    <div class="card" id="card2" style="width: 18rem;">
+                        <img class="card-img-top" src="comidas\cookies.jpg" alt="Aca va la imagen">
+                        <div class="card-body">
+                          <h5 class="card-title">Cookies de Chocolate</h5>
+                          <p class="card-text">
+                              Chefcito: Juan Diaco
+                              <li>Dificultad: Intermedia </li>
+                              <li>Calificación: 5 estrellas </li>
+                              <li>Tiempo estimado: 45 minutos</li>
+                              <br>
+                            #cookies #merienda #chocolate
+                          </p>
+                          <a href="#" class="btn btn-primary">Ver receta</a>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+
+            
+
+
+        </div>
+
+
+
+    <script src="popper.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    </body>
+</html>

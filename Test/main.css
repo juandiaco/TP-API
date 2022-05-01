@@ -1,0 +1,16 @@
+body{
+    background-color: #EDEDED;
+}
+
+.barra{
+    background-color: hsl(37, 74%, 85%);
+}
+
+.buscar{
+    margin-left: 5%;
+}
+
+.receta{
+    margin-top: 5%;
+    margin-left: 20%;
+}
