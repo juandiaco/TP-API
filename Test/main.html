@@ -8,7 +8,7 @@
     </head>
     <body>  
         <!-- COMIENZO NAVBAR-->
-        <nav class="navbar navbar-expand-lg navbar bg barra">
+        <nav class="navbar navbar-expand-lg navbar-light bg barra">
             <div class="container-fluid">
                 <!-- LOGO-->
                 <nav class="navbar navbar bg">
@@ -21,13 +21,18 @@
 
                 <!-- BOTON COLAPSAR-->
 
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBuscar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <img src="search.svg" alt="Bootstrap">
+                </button>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
+
                 <!-- CAMPO DE BUSQUEDA-->
 
-                <div class="collapse navbar-collapse justify-content-center buscar" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse justify-content-center buscar" id="navbarBuscar">
                     <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
                 </div>
 
