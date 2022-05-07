@@ -2,19 +2,19 @@
 <html>
     <head>
         <meta charset="uft-8">
-        <title>Main</title>
+        <title>Main-Test</title>
         <link rel="stylesheet" href="bootstrap.min.css">
         <link rel="stylesheet" href="main.css">
     </head>
     <body>  
         <!-- COMIENZO NAVBAR-->
-        <nav class="navbar navbar-expand-lg navbar-light bg barra">
+        <nav class="navbar navbar-expand-md navbar-light bg barra">
             <div class="container-fluid">
                 <!-- LOGO-->
                 <nav class="navbar navbar bg">
                     <div class="container">
                       <a class="navbar-brand" href="#">
-                        <img src="logo.jpg" alt="" width="30" height="24">
+                        <img src="logo.jpg" alt="" width="40" height="34">
                       </a>
                     </div>
                 </nav> 
@@ -24,9 +24,11 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBuscar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <img src="search.svg" alt="Bootstrap">
                 </button>
-
+                
+                
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"> 
+                    </span>
                 </button>
 
 
@@ -75,30 +77,79 @@
         <hr class="style6">
         <br>
         
-        <div class="container receta">
+        <div class="container-lg receta">
             <div class="row">
-                <div class="col-6">
-                    <div class="card" id="cardmain1" style="width: 18rem;">
+                    
+                            <div class="col-6">
+                    
+                                <div class="card" id="card1" style="width: 18rem;">
+                                    <img class="card-img-top" src="comidas\pollo.jpg" alt="Aca va la imagen">
+                                    <div class="card-body">
+                                    <h5 class="card-title">Pollo con papas</h5>
+                                    <p class="card-text">
+                                        Chefcito: Luciana Souto
+                                        <li>Dificultad: Fácil </li>
+                                        <li>Calificación: 5 estrellas </li>
+                                        <li>Tiempo estimado: 60 minutos</li>
+                                        <br>
+                                        #pollo #recetafacil #cena
+                                    </p>
+                                    <a href="#" class="btn btn-primary">Ver receta</a>
+                                    </div>
+                                </div>
+            
+                            </div>
+
+                            <div class="col-6">
+                                    <div class="card" id="card2" style="width: 18rem;">
+                                        <img class="card-img-top" src="comidas\cookies.jpg" alt="Aca va la imagen">
+                                        <div class="card-body">
+                                        <h5 class="card-title">Cookies de Chocolate</h5>
+                                        <p class="card-text">
+                                            Chefcito: Juan Diaco
+                                            <li>Dificultad: Intermedia </li>
+                                            <li>Calificación: 5 estrellas </li>
+                                            <li>Tiempo estimado: 45 minutos</li>
+                                            <br>
+                                            #cookies #merienda #chocolate
+                                        </p>
+                                        <a href="#" class="btn btn-primary">Ver receta</a>
+                                        </div>
+                                    </div>
+                                
+                            </div>
+                    
+            </div>
+
+            <br>
+            <hr class="style6">
+            <br>
+            
+            <div class="row">
+            
+
+                <!-- OTRAS RECETAS -->
+                <div class="col-4">
+                    <div class="card" id="card1" style="width: 18rem;">
                         <img class="card-img-top" src="comidas\pollo.jpg" alt="Aca va la imagen">
                         <div class="card-body">
                           <h5 class="card-title">Pollo con papas</h5>
                           <p class="card-text">
                               Chefcito: Luciana Souto
-                              <li>Categoría: Almuerzo / Cena </li>
-                              <li>Dificultad: Intermedia </li>
+                              <li>Dificultad: Fácil </li>
+                              <li>Calificación: 5 estrellas </li>
                               <li>Tiempo estimado: 60 minutos</li>
                               <br>
-                              <i class="bi bi-hand-thumbs-up-fill"></i>
                             #pollo #recetafacil #cena
                           </p>
-                          <a href="#" class="btn btn-primary">Ir</a>
+                          <a href="#" class="btn btn-primary">Ver receta</a>
                         </div>
                     </div>
    
                 </div>
 
-                <div class="col-6">
-                    <div class="card" id="cardmain2" style="width: 18rem;">
+                <div class="col-4">
+                    <div class="card" id="card2" style="width: 18rem;">
                         <img class="card-img-top" src="comidas\cookies.jpg" alt="Aca va la imagen">
                         <div class="card-body">
                           <h5 class="card-title">Cookies de Chocolate</h5>
@@ -110,36 +161,34 @@
                               <br>
                             #cookies #merienda #chocolate
                           </p>
-                          <a href="#" class="btn btn-primary">Ir</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-6">
-                    <div class="card" id="cardmain3" style="width: 18rem;">
-                        <img class="card-img-top" src="comidas\ensaladaFrutas.jpg" alt="Aca va la imagen">
-                        <div class="card-body">
-                          <h5 class="card-title">Ensalada de Frutas</h5>
-                          <p class="card-text">
-                              Chefcito: Johny Depp
-                              <li>Dificultad: Fácil </li>
-                              <li>Calificación: 5 estrellas </li>
-                              <li>Tiempo estimado: 25 minutos</li>
-                              <br>
-                            #desayuno #saludable #frutas
-                          </p>
-                          <a href="#" class="btn btn-primary">Ir</a>
+                          <a href="#" class="btn btn-primary">Ver receta</a>
                         </div>
                     </div>
                 
                 </div>
-      
+                    <div class="col-4">
+                        <div class="card" id="card3" style="width: 18rem;">
+                            <img class="card-img-top" src="comidas\ensaladaFrutas.jpg" alt="Aca va la imagen">
+                            <div class="card-body">
+                              <h5 class="card-title">Ensalada de Frutas</h5>
+                              <p class="card-text">
+                                  Chefcito: Johny Depp
+                                  <li>Dificultad: Fácil </li>
+                                  <li>Calificación: 5 estrellas </li>
+                                  <li>Tiempo estimado: 25 minutos</li>
+                                  <br>
+                                #desayuno #saludable #frutas
+                              </p>
+                              <a href="#" class="btn btn-primary">Ir</a>
+                            </div>
+                        </div>
+                    
+                    </div>
+                    
+                </div>    
+
+
             </div>
-
-            <br>
-                <hr class="style6" id="divider">
-            <br>
-
             
 
 
@@ -149,5 +198,6 @@
 
     <script src="popper.min.js"></script>
     <script src="bootstrap.min.js"></script>
+    
     </body>
 </html>
