@@ -1,5 +1,5 @@
-
-
+import { Carousel } from 'bootstrap';
+import { Link } from 'react-router-dom';
 const slide1 = require('./slides-carrusel/slide1.jpg');
 const slide2 = require('./slides-carrusel/slide2.jpg');
 const slide3 = require('./slides-carrusel/slide3.jpg');
@@ -31,8 +31,8 @@ function Inicio(){
 
             </div>
             <div class="barrita container text-center">
-                    <a class="barra" href="login.html"><button class="btn btn-primary btn-lg">Iniciar sesión</button></a>
-                    <a class="barra" href="registrar.html"><button class="btn btn-primary btn-lg">Registrarse</button></a>
+                    <Link class="barra" to='/login'><button class="btn btn-primary btn-lg">Iniciar Sesión</button></Link>
+                    <Link class="barra" to='/prueba'><button class="btn btn-primary btn-lg">Registrarse</button></Link>
             </div>
         </article>
     </div>
