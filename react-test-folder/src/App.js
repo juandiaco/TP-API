@@ -4,6 +4,7 @@ import './App.css';
 import Inicio from './components/Inicio';
 import Login from './components/Login';
 import Prueba from './components/Test';
+import Registrar from './components/Registrar';
 
 
 
@@ -15,7 +16,7 @@ function App() {
     <Routes>
       <Route path='/' element={<Inicio />} />
       <Route path='login' element={<Login />} />
-      <Route path='prueba' element={<Prueba />} />
+      <Route path='registrar' element={<Registrar />} />
       
     </Routes>
     
