@@ -1,0 +1,63 @@
+.cardmain{
+
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+    width: 300px;
+    height: 450px;
+    left: 100px;
+    top: 20px;
+    bottom: auto;
+    margin: auto;
+    margin-top: 10px;
+    margin-left: 50px;
+    
+
+    /* Gray/White */
+
+    background: #FFFFFF;
+    /* _Components/Card/Border */
+
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 4px;
+
+
+}
+
+
+
+.content{
+    margin-top: 60px;
+    padding: 12px;
+    height: 3000px;
+}
+
+.wrapper{
+    background-color: bisque;
+    margin-bottom: auto;
+    padding-bottom: 50px;
+}
+
+.g-4{
+    width: 800px;
+    height: auto;
+}
+
+.columnaMain{
+    height: auto;
+    width: auto;
+    right: 50px;
+}
+
+.imagenCard{
+    height: 100px;
+    width: flex;
+    margin: auto;
+}
+
+.filtrocheck{
+
+}
+
+    

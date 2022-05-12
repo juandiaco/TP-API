@@ -1,4 +1,5 @@
 
+import { Link } from 'react-router-dom';
 import {Form, FormGroup, Button,} from 'react-bootstrap';
 import { Col, Container, Row } from 'react-bootstrap';
 import classes from './login.css';
@@ -28,9 +29,7 @@ function Login(){
 
                                     
                             </Form.Group>
-                            <Button variant="primary" type="submit">
-                                    ¡Listo!
-                            </Button>
+                            <Link class="" to='/main'><button class="btn btn-primary btn-lg">Listo!</button></Link>
                         </Form>
                     </div>
 
