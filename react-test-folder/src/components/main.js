@@ -2,64 +2,84 @@ import React from 'react';
 import {Form, FormGroup,Button,Navbar,NavDropdown,Nav,Container, Card, Row, Col,ListGroup,ListGroupItem} from 'react-bootstrap';
 import './main.css';
 import CrearReceta from './crearReceta';
-import{BrowserRouter as Router, Switch, Route, Link, NavLink} from "react-router-dom"
+import{BrowserRouter as Router, Switch, Route, Routes, Link, NavLink} from "react-router-dom"
+import MainNavigation from './MainNavigation';
+import CardList from './cards/cardList';
+import CardItem from './cards/cardItem';
+
+const lista = [
+    {
+        id: "c1",
+        titulo: "Pollo con papas",
+        chef: "Luciana Souto",
+        descripcion: "Receta facil de hacer y con pocos ingredientes",
+        dificultad: "Fácil",
+        categoria: "Cena",
+        imagen: "./comidas/pollo.jpg",
+        calificacion: "4.5",
+    },
+    {
+        id: "c2",
+        titulo: "Cookies de Chocolate",
+        chef: "Juan Diaco",
+        descripcion: "Galletitas para todas las edades!",
+        dificultad: "Intermedia",
+        categoria: "Merienda",
+        imagen: "./comidas/cookies.jpg",
+        calificacion: "4.0",
+    },
+    {
+        id: "c3",
+        titulo: "Ensalada de Frutas",
+        chef: "Juan Diaco",
+        descripcion: "Perfecta para el verano!",
+        dificultad: "Facil",
+        categoria: "Postre",
+        imagen: "./comidas/ensaladaFrutas.jpg",
+        calificacion: "3.5",
+    },
+    {
+        id: "c4",
+        titulo: "Hamburguesa Vegana",
+        chef: "Luciana Souto",
+        descripcion: "Para no comer carne y disfrutar de la misma sensación",
+        dificultad: "Difícil",
+        categoria: "Almuerzo",
+        imagen: "./comidas/hamburguesavegana.jpg",
+        calificacion: "3.0",
+    },
+]
+
 
 
 function Main(){
  return (
      <div className='wrapper'>
-             <div>
-                <Navbar bg="light" expand="lg">
-                    <Container>
-                        <Navbar.Brand>
-                            Recetar
-                        </Navbar.Brand>
-                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                        <Navbar.Collapse id="basic-navbar-nav">
-                            <Nav className="me-auto">
-                            <Nav.Link href="#home">Inicio</Nav.Link>
-                            <Nav.Link href="#link">Recetario</Nav.Link>
-                            <Nav.Link as={Link} to={"/crearReceta"}>Crear</Nav.Link>
-                            <NavDropdown title="Perfil" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">Editar Perfil</NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.4">Cerrar Sesión</NavDropdown.Item>
-                            </NavDropdown>
-                            </Nav>
-                        </Navbar.Collapse>
-                    </Container>
-                </Navbar>
-            </div>
-            <div className='mainpg'>
-                    <Row xs={2} md={2} className="g-4">
-                        {Array.from({ length: 4 }).map((_, idx) => (
-                        <Col className='columnaMain'>
-                        <Card className='cardmain'>
-                            <Card.Img className='imagenCard' alt="fotoreceta"/>
-                            <Card.Body>
-                                <Card.Title>Titulo Receta</Card.Title>
-                                <br></br>
-                                <Card.Subtitle>Chefcito: </Card.Subtitle>
-                                <Card.Text>
-                                Descripción breve de la receta
-                                </Card.Text>
-                                <ListGroup className="list-group-flush">
-                                    <ListGroupItem>Dificultad:</ListGroupItem>
-                                    <ListGroupItem>Categoría:</ListGroupItem>
-                                    <ListGroupItem>Calificación</ListGroupItem>
-                                    </ListGroup>
-                                    <Card.Body>
-                                    <Button variant="primary">Ver</Button>
-                                    </Card.Body>
-                                    </Card.Body>
-                        </Card>
-                        </Col>
-                        ))}
-                        </Row>
-            </div>
-            <div class="container-fluid">
+            <MainNavigation />
             
+            <div className='container mainpg '>
+                
+            <Row className="g-4">
+
+                {lista.map((card) => (
+                <Col md={6} className='columnaMain'>
+                <CardItem 
+                key={card.id}
+                image={card.imagen}
+                titulo={card.titulo}
+                chef={card.chef}
+                descripcion={card.descripcion}
+                dificultad={card.dificultad}
+                categoria={card.categoria}
+                calificacion={card.calificacion} />
+                </Col>
+            ))}
+            </Row>
             </div>
+
+
+             {/*  <CardList cartas={lista_Cartas} /> */}
+
     </div>
 );}
 

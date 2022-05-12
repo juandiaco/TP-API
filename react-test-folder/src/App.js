@@ -6,6 +6,7 @@ import Login from './components/Login';
 import Main from './components/main';
 import Prueba from './components/Test';
 import Registrar from './components/Registrar';
+import CrearReceta from './components/crearReceta';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path='prueba' element={<Prueba />} />
       <Route path='main' element={<Main />} />
       <Route path='registrar' element={<Registrar />} />
+      <Route path='crearReceta' element={<CrearReceta />}/>
     </Routes>
   </div>
   );

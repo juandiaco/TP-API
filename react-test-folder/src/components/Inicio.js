@@ -1,6 +1,7 @@
 import { Carousel } from 'bootstrap';
 import { Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+
 const slide1 = require('./slides-carrusel/slide1.jpg');
 const slide2 = require('./slides-carrusel/slide2.jpg');
 const slide3 = require('./slides-carrusel/slide3.jpg');
@@ -10,6 +11,7 @@ function Inicio(){
     return (
     <div>    
         <header>
+
         <Container>
                 <Row>  
                     <Col sm={12}>
