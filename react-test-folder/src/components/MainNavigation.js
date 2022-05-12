@@ -8,18 +8,17 @@ return (
     <Navbar bg="light" expand="lg">
         <Container>
             <Navbar.Brand>
-                Recetar
+                <Nav.Link as={Link} to="/main">Recetar</Nav.Link>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
-                <Nav.Link href="#home">Inicio</Nav.Link>
-                <Nav.Link href="#link">Recetario</Nav.Link>
+                <Nav.Link as={Link} to="/recetario">Mi Recetario</Nav.Link>
                 <Nav.Link as={Link} to="/crearReceta">Crear</Nav.Link>
                 <NavDropdown title="Perfil" id="basic-nav-dropdown">
                     <NavDropdown.Item href="#action/3.1">Editar Perfil</NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.4">Cerrar Sesión</NavDropdown.Item>
+                    <Nav.Link as={Link} to= "/inicio">Cerrar Sesión</Nav.Link>
                 </NavDropdown>
                 </Nav>
             </Navbar.Collapse>

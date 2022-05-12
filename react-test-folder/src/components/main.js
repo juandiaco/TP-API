@@ -2,6 +2,7 @@ import React from 'react';
 import {Form, FormGroup,Button,Navbar,NavDropdown,Nav,Container, Card, Row, Col,ListGroup,ListGroupItem} from 'react-bootstrap';
 import './main.css';
 import CrearReceta from './crearReceta';
+import Recetario from './recetario'
 import{BrowserRouter as Router, Switch, Route, Routes, Link, NavLink} from "react-router-dom"
 import MainNavigation from './MainNavigation';
 import CardList from './cards/cardList';
@@ -35,7 +36,7 @@ const lista = [
         descripcion: "Perfecta para el verano!",
         dificultad: "Facil",
         categoria: "Postre",
-        imagen: "./comidas/ensaladaFrutas.jpg",
+        imagen: ".cards/comidas/ensaladaFrutas.jpg",
         calificacion: "3.5",
     },
     {
@@ -43,10 +44,20 @@ const lista = [
         titulo: "Hamburguesa Vegana",
         chef: "Luciana Souto",
         descripcion: "Para no comer carne y disfrutar de la misma sensación",
-        dificultad: "Difícil",
+        dificultad: "Avanzada",
         categoria: "Almuerzo",
         imagen: "./comidas/hamburguesavegana.jpg",
         calificacion: "3.0",
+    },
+    {
+        id: "c4",
+        titulo: "Guiso de Mondongo",
+        chef: "Luciana Souto",
+        descripcion: "Típico guiso de invierno",
+        dificultad: "Intermedia",
+        categoria: "Almuerzo",
+        imagen: "./comidas/hamburguesavegana.jpg",
+        calificacion: "3.4.0",
     },
 ]
 
@@ -59,7 +70,7 @@ function Main(){
             
             <div className='container mainpg '>
                 
-            <Row className="g-4">
+            <Row className="g-2">
 
                 {lista.map((card) => (
                 <Col md={6} className='columnaMain'>

@@ -122,15 +122,35 @@ article{
 
 .inputLogin{
     box-sizing: border-box;
-    height: 20px;
+    height: 40px;
     width: 300px;
     margin-bottom: 40px;
     border: 0px;
     width: 25rem;
+    margin-left: 32%;
    
 }
 
 .botonLogin{
     width: 10rem;
     background-color: rgb(152, 150, 150);
+}
+
+.inputCrear{
+
+    box-sizing: border-box;
+    height: 40px;
+    width: 300px;
+    margin-bottom: 40px;
+    border: 0px;
+    width: 30rem;
+
+}
+
+#inputproc{
+    height: 300px;
+}
+
+.botonCrear{
+    margin-left: 40px;
 }
