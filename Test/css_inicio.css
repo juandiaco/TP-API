@@ -70,5 +70,6 @@ article{
 .barra button:hover{
 
     background: #d6c9b3;
+    border-color: rgb(156, 153, 153);
 
 }

@@ -1,6 +1,7 @@
 import { ReactDOM } from 'react-dom/client';
 import { Route, Routes, BrowserRouter, } from 'react-router-dom';
-import './App.css';
+import './bootstrap.min.css';
+import './components/css_inicio.css';
 import Inicio from './components/Inicio';
 import Login from './components/Login';
 import Main from './components/main';

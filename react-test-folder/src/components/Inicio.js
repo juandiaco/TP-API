@@ -8,6 +8,7 @@ const slide3 = require('./slides-carrusel/slide3.jpg');
 
 
 function Inicio(){
+    document.body.style.backgroundColor = "#0E9594";
     return (
     <div>    
         <header>
@@ -15,19 +16,22 @@ function Inicio(){
         <Container>
                 <Row>  
                     <Col sm={12}>
-                        <h1 class="container justify-content-center"> Recet.ar</h1>
+                        <h1 className="container justify-content-center tituloInicio"> Recet.ar</h1>
 
                     </Col>
                 </Row>
                 <Row>
                     <Col sm={12}>
-                        <h2 class="container justify-content-center">Cociná sencillo. Rápido. Personalizado</h2>
+                        <h2 className="container justify-content-center subtituloInicio">Cociná sencillo. Rápido. Personalizado</h2>
                     </Col>
                 </Row>
         </Container>
         </header>
         <article> 
-        <div class="container-sm justify-content-center carousel slide h-auto" id="mainSlider" data-bs-ride="carousel">
+
+         
+
+            <div class="container-sm justify-content-center carousel slide h-auto" id="mainSlider" data-bs-ride="carousel">
                 <div class="carousel-inner">
 
                     <div class="carousel-item active">
@@ -46,8 +50,8 @@ function Inicio(){
 
             </div>
             
-            <div class="barrita container text-center">
-                    <Link class="barra" to='/login'><button class="btn btn-primary btn-lg">Iniciar Sesión</button></Link>
+            <div class="container text-center">
+                    <Link className="barra" to='/login'><button className="btn btn-primary btn-lg">Iniciar Sesión</button></Link>
                     <Link class="barra" to='/registrar'><button class="btn btn-primary btn-lg">Registrarse</button></Link>
             </div>
         </article>
