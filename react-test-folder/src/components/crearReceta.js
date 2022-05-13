@@ -3,6 +3,7 @@ import {Form, FormGroup,Button,Navbar,NavDropdown,Nav,Container,Dropdown,Dropdow
 import MainNavigation from './MainNavigation';
 
 function CrearReceta(){
+  document.body.style.backgroundColor= "bisque";
     return (
         <div> 
           <MainNavigation /> 

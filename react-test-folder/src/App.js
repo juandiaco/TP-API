@@ -8,6 +8,7 @@ import Main from './components/main';
 import Prueba from './components/Test';
 import Registrar from './components/Registrar';
 import CrearReceta from './components/crearReceta';
+import Recetario from './components/recetario';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route path='main' element={<Main />} />
       <Route path='registrar' element={<Registrar />} />
       <Route path='crearReceta' element={<CrearReceta />}/>
+      <Route path='recetario' element={<Recetario />} />
     </Routes>
   </div>
   );

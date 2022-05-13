@@ -64,7 +64,9 @@ const lista = [
 
 
 function Main(){
+document.body.style.backgroundColor= "bisque";
  return (
+     
      <div className='wrapper'>
             <MainNavigation />
             
