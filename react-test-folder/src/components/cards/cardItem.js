@@ -1,8 +1,12 @@
 import {Form, FormGroup,Button,Navbar,NavDropdown,Nav,Container, Card, Row, Col,ListGroup,ListGroupItem} from 'react-bootstrap';
+import '../css_inicio.css';
+
+
 
 function CardItem(props){
 return(
     <div>
+        
         <Card className='cardmain'>
             <Card.Img className='imagenCard' alt={props.titulo} src={props.imagen}/>
             <Card.Body>

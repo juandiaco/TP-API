@@ -5,8 +5,10 @@ import CrearReceta from './crearReceta';
 import Recetario from './recetario'
 import{BrowserRouter as Router, Switch, Route, Routes, Link, NavLink} from "react-router-dom"
 import MainNavigation from './MainNavigation';
-import CardList from './cards/cardList';
 import CardItem from './cards/cardItem';
+
+
+
 
 const lista = [
     {
@@ -36,7 +38,7 @@ const lista = [
         descripcion: "Perfecta para el verano!",
         dificultad: "Facil",
         categoria: "Postre",
-        imagen: ".cards/comidas/ensaladaFrutas.jpg",
+        imagen: "./comidas/ensaladaFrutas.jpg",
         calificacion: "3.5",
     },
     {
@@ -50,16 +52,16 @@ const lista = [
         calificacion: "3.0",
     },
     {
-        id: "c4",
+        id: "c5",
         titulo: "Guiso de Mondongo",
         chef: "Luciana Souto",
         descripcion: "Típico guiso de invierno",
         dificultad: "Intermedia",
         categoria: "Almuerzo",
-        imagen: "./comidas/hamburguesavegana.jpg",
+        imagen: "./comidas/guiso.jpg",
         calificacion: "3.4.0",
-    },
-]
+    }
+];
 
 
 
@@ -70,6 +72,7 @@ document.body.style.backgroundColor= "bisque";
      <div className='wrapper'>
             <MainNavigation />
             
+            
             <div className='container mainpg '>
                 
             <Row className="g-2">
@@ -78,7 +81,7 @@ document.body.style.backgroundColor= "bisque";
                 <Col md={6} className='columnaMain'>
                 <CardItem 
                 key={card.id}
-                image={card.imagen}
+                imagen={card.imagen}
                 titulo={card.titulo}
                 chef={card.chef}
                 descripcion={card.descripcion}
@@ -91,7 +94,7 @@ document.body.style.backgroundColor= "bisque";
             </div>
 
 
-             {/*  <CardList cartas={lista_Cartas} /> */}
+             
 
     </div>
 );}

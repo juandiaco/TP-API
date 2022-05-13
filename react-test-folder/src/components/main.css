@@ -5,7 +5,7 @@
 
     position: relative;
     width: 300px;
-    height: 450px;
+    height: 500px;
     left: 100px;
     top: 20px;
     bottom: auto;
@@ -50,11 +50,7 @@
     right: 50px;
 }
 
-.imagenCard{
-    height: 100px;
-    width: flex;
-    margin: auto;
-}
+
 
 .filtrocheck{
 
