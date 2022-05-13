@@ -22,7 +22,12 @@ return(
                     <ListGroupItem>Calificación: {props.calificacion} </ListGroupItem>
                     </ListGroup>
                     <Card.Footer className='cardfooter'>
-                    <Button variant="primary" className='btnver'>Ver</Button>
+                    <div className='containerbtnver'>
+                    <Button variant="primary" className='btnver'>
+                        <a href="/recetaCompleta"> Ver </a>
+                    </Button>
+                    </div>
+                    
                     </Card.Footer>
             </Card.Body>
         </Card>

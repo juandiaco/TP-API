@@ -168,9 +168,21 @@ height: 100px;
     margin: auto;
     */
 
-.btnver{
+.containerbtnver{
+    display: flex;
+    justify-content: center;
+}
+
+    .btnver{
     background-color: orangered;
     border-color: bisque;
+    color: white;
+    align-self: center;
+}
+.btnver>a{
+    text-decoration: inherit;
+    color: white;
+    
 }
 .imagenCard{
     height: auto;
@@ -180,6 +192,7 @@ height: 100px;
 }
 
 .cardfooter{
+    align-content: center;
    
 }
 
@@ -198,3 +211,51 @@ height: 100px;
     font-family: Arial, Helvetica, sans-serif;
 
 }
+
+.recetariosLista{
+    display: flex;
+    justify-content: center;
+    flex-flow:row wrap;
+}
+
+/* ----------------------------------------------------------------------------------- */
+/* ------------------------------------EDITAR PERFIL------------------------------------------ */
+/* ----------------------------------------------------------------------------------- */
+
+.perfilcard{
+    background-color: white;
+    height: 200px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.header{
+    text-align: center;
+    align-content: center;
+    width: 50px;
+    height: 50px;
+    margin:auto;
+    
+}
+
+#titulocard{
+    margin-top: 10px;
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    min-height: 100% !important;
+
+}
+
+/* ----------------------------------------------------------------------------------- */
+/* ------------------------------------CREAR------------------------------------------ */
+/* ----------------------------------------------------------------------------------- */
+#btncrear{
+    background-color: orangered;
+    border-color: bisque;
+    font-weight: 100;
+}
+

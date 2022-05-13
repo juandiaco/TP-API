@@ -54,11 +54,11 @@ function CrearReceta(){
 
                     <br/>
                     
-                    <Button variant="primary" type="submit">
+                    <Button id= "btncrear" variant="primary" type="submit">
                             Publicar
                     </Button>
 
-                    <Button variant="primary" type="submit" className='botonCrear'>
+                    <Button id= "btncrear" variant="primary" type="submit" className='botonCrear'>
                             Guardar Borrador
                     </Button>
 

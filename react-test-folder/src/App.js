@@ -9,6 +9,8 @@ import Prueba from './components/Test';
 import Registrar from './components/Registrar';
 import CrearReceta from './components/crearReceta';
 import Recetario from './components/recetario';
+import EditarPerfil from './components/editarPerfil';
+import RecetaCompleta from './components/recetaCompleta';
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
       <Route path='crearReceta' element={<CrearReceta />}/>
       <Route path='recetario' element={<Recetario />} />
       <Route path='inicio' element={<Inicio />} />
+      <Route path='editarPerfil' element={<EditarPerfil />} />
+      <Route path='recetaCompleta' element={<RecetaCompleta />} />
 
     </Routes>
   </div>

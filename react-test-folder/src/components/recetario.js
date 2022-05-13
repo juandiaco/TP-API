@@ -38,6 +38,7 @@ const lista = [
 
 
 function Recetario(){
+    document.body.style.backgroundColor= "bisque";
     return(
         <div className="wrapper">
             <div>
@@ -45,8 +46,8 @@ function Recetario(){
                 <h1 id="tituloRec"> Tus recetas favoritas </h1>
             </div>
             <div id="listadoRecetas">
-                <div className='container mainpg '>
-                    <Row className="g-2">
+                <div className='containerRecetario'>
+                    <Row className="g-2 recetariosLista">
                         {lista.map((card) => (
                         <Col md={6} className='columnaMain'>
                             <CardItem 

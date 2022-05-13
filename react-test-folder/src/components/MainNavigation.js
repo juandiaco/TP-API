@@ -16,7 +16,7 @@ return (
                 <Nav.Link as={Link} to="/Recetario">Mi Recetario</Nav.Link>
                 <Nav.Link as={Link} to="/crearReceta">Crear</Nav.Link>
                 <NavDropdown title="Perfil" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">Editar Perfil</NavDropdown.Item>
+                    <NavDropdown.Item href="/editarPerfil">Editar Perfil</NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.1">Borradores</NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="/Inicio">Cerrar Sesión</NavDropdown.Item>

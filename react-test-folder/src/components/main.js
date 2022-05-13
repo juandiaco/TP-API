@@ -6,6 +6,7 @@ import Recetario from './recetario'
 import{BrowserRouter as Router, Switch, Route, Routes, Link, NavLink} from "react-router-dom"
 import MainNavigation from './MainNavigation';
 import CardItem from './cards/cardItem';
+import editarPerfil from './editarPerfil';
 
 
 
@@ -99,7 +100,7 @@ document.body.style.backgroundColor= "bisque";
         </div>
         <div id="listadoRecetas">
             
-            <div className='container mainpg '>
+            <div>
                 
             <Row className="g-2">
 
