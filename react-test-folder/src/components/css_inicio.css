@@ -168,15 +168,21 @@ height: 100px;
     margin: auto;
     */
 
-
-
-
-
-
-
+.btnver{
+    background-color: orangered;
+    border-color: bisque;
+}
 .imagenCard{
     height: auto;
     max-height: 150px;
     width: auto;
     max-width: 300px;
+}
+
+.cardfooter{
+   
+}
+
+.list-group-flush{
+    padding-bottom: 5px;
 }

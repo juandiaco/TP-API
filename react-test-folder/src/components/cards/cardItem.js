@@ -21,9 +21,9 @@ return(
                     <ListGroupItem>Categoría: {props.categoria} </ListGroupItem>
                     <ListGroupItem>Calificación: {props.calificacion} </ListGroupItem>
                     </ListGroup>
-                    <Card.Body>
-                    <Button variant="primary">Ver</Button>
-                    </Card.Body>
+                    <Card.Footer className='cardfooter'>
+                    <Button variant="primary" className='btnver'>Ver</Button>
+                    </Card.Footer>
             </Card.Body>
         </Card>
 
