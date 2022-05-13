@@ -1,5 +1,5 @@
 import React from 'react';
-import {Form, FormGroup,Button,Navbar,NavDropdown,Nav,Container, Card, Row, Col,ListGroup,ListGroupItem} from 'react-bootstrap';
+import {Form, FormGroup,Button,Navbar,NavDropdown,Nav,Container, Card, Row, Col,ListGroup,ListGroupItem, Dropdown, DropdownButton} from 'react-bootstrap';
 import './main.css';
 import CrearReceta from './crearReceta';
 import Recetario from './recetario'
@@ -67,11 +67,37 @@ const lista = [
 
 function Main(){
 document.body.style.backgroundColor= "bisque";
- return (
-     
+ return ( 
      <div className='wrapper'>
-            <MainNavigation />
+         <MainNavigation /> 
+         <div id="containerRecetario">
+                <div id="barraLateral">
+
+         <div className='dropdowns'>
+            <DropdownButton id="dropdown-item-button" title="Categoría">
+                <Dropdown.Item as="button">Cena</Dropdown.Item>
+                <Dropdown.Item as="button">Merienda</Dropdown.Item>
+                <Dropdown.Item as="button">Postre</Dropdown.Item>
+            </DropdownButton>
+
+            <br/>
+            <DropdownButton id="dropdown-item-button" title="Ingrediente">
+                <Dropdown.Item as="button">Papa</Dropdown.Item>
+                <Dropdown.Item as="button">Carne</Dropdown.Item>
+                <Dropdown.Item as="button">Chocolate</Dropdown.Item>
+            </DropdownButton>
+
+            <br/>
+            <DropdownButton id="dropdown-item-button" title="Dificultad">
+                <Dropdown.Item as="button">Facil</Dropdown.Item>
+                <Dropdown.Item as="button">Intermedia</Dropdown.Item>
+                <Dropdown.Item as="button">Avanzada</Dropdown.Item>
+            </DropdownButton>
             
+
+        </div>
+        </div>
+        <div id="listadoRecetas">
             
             <div className='container mainpg '>
                 
@@ -92,10 +118,8 @@ document.body.style.backgroundColor= "bisque";
             ))}
             </Row>
             </div>
-
-
-             
-
+            </div>
+            </div>
     </div>
 );}
 

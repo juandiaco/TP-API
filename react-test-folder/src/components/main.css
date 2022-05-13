@@ -5,7 +5,7 @@
 
     position: relative;
     width: 300px;
-    height: 500px;
+    height: 450px;
     left: 100px;
     top: 20px;
     bottom: auto;
@@ -47,13 +47,32 @@
 .columnaMain{
     height: auto;
     width: auto;
-    right: 50px;
 }
 
+.imagenCard{
+    height: 115px;
+    width: flex;
+    margin: flex;
+}
 
-
-.filtrocheck{
+#dropdown-item-button{
+    margin-top: 20px;
 
 }
+
+#containerRecetario{
+    display: grid;
+    grid-template-columns: 1fr 9fr;
+    grid-column-gap: 10px;
+    grid-template-areas: "barraLateral listaDeObjetos";
+  }
+
+  #barraLateral {
+    grid-area: barraLateral;
+    margin-left: 5px;
+  }
+  #listadoRecetas{
+    grid-area: listaDeObjetos;
+  }
 
     

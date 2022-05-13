@@ -9,7 +9,8 @@ function CrearReceta(){
           <MainNavigation /> 
           <div style={{ display: 'block', 
                         width: 700, 
-                        padding: 30 }}>
+                        padding: 30,
+                        margin: "auto",}}>
             <Form className='rounded p-4 p-sm-3'>
                     <div>
                         <h2 class="text-center">  Nueva Receta</h2>
@@ -48,6 +49,11 @@ function CrearReceta(){
 
                     <br/>
 
+                    <Form.Label className='mb-3' for="customFile"> Subi una foto </Form.Label>
+                    <Form.Control type="file" id="customFile" />
+
+                    <br/>
+                    
                     <Button variant="primary" type="submit">
                             Publicar
                     </Button>
