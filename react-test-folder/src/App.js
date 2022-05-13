@@ -22,6 +22,8 @@ function App() {
       <Route path='registrar' element={<Registrar />} />
       <Route path='crearReceta' element={<CrearReceta />}/>
       <Route path='recetario' element={<Recetario />} />
+      <Route path='inicio' element={<Inicio />} />
+
     </Routes>
   </div>
   );
