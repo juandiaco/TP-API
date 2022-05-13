@@ -6,7 +6,6 @@ function Registrar(){
     return (
         <div>
             <div > 
-            <h1 className='tituloCrear'>Las mejores recetas en un sólo lugar.</h1>
             </div>
             <div class="container text-center"  >
                 <Form className='inputLogin'>

@@ -85,22 +85,29 @@ article{
 /* ----------------------------------------------------------------------------------- */
 
 .formcontrol{
-    margin-bottom: 30px;
+    margin: 0 auto 30px auto;
     display: flex;
     width: 500px;
-    margin-left: 380px;
 }
 .inputLogin{
-    color: black;
-    margin-top: 100px;
+    color: bisque;
+    margin-top: 200px;
 }
 
 .containerLogin{
     background-color: rgba(156, 153, 153, 0.349);
     border-radius:5%;
-    position: relative;
     width: auto;
     height: auto;
+    align-items: center;
+}
+
+.loginc{
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+
+
 }
 
 
@@ -113,7 +120,9 @@ article{
     font-size: 3rem;
     line-height: 3.75rem;
     color: black;
-    margin-top: 5rem;
+    width: auto;
+    max-width:auto;
+    
 }
 
 .subtituloLogin{
@@ -129,6 +138,7 @@ article{
      font-size: 1.3rem;
      line-height: 3.75rem;
      color: black;
+     width: auto;
 
 }
 
