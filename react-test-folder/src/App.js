@@ -11,6 +11,7 @@ import CrearReceta from './components/crearReceta';
 import Recetario from './components/recetario';
 import EditarPerfil from './components/editarPerfil';
 import RecetaCompleta from './components/recetaCompleta';
+import RecuperoContraseña from './components/recuperoContraseña';
 
 function App() {
   return (
@@ -27,7 +28,8 @@ function App() {
       <Route path='inicio' element={<Inicio />} />
       <Route path='editarPerfil' element={<EditarPerfil />} />
       <Route path='recetaCompleta' element={<RecetaCompleta />} />
-
+      <Route path='recuperoContraseña' element={<RecuperoContraseña />} />
+      
     </Routes>
   </div>
   );

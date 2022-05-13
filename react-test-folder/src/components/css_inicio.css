@@ -9,20 +9,23 @@ header{
 
 .tituloInicio{
     color: #F5DFBB;
-    font-family: 'Outfit';
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 38rem;
     font-size: 6.25rem;
     line-height: 6.25rem;
     text-align: center;
-    margin-bottom: 0px; 
+    margin-bottom: 0px;
+    margin-top: 70px; 
 }
 
 .subtituloInicio{
-    font-family: 'Outfit';
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 25rem;
     font-size: 0.9375rem;
     text-align: center;
     margin-top: -1px;
+    color: #F5DFBB;
+    font-size: larger;
 }
 
 article{
@@ -81,9 +84,23 @@ article{
 /* ------------------------------------LOGIN------------------------------------------ */
 /* ----------------------------------------------------------------------------------- */
 
-
+.formcontrol{
+    margin-bottom: 30px;
+    display: flex;
+    width: 500px;
+    margin-left: 380px;
+}
 .inputLogin{
-    color: rebeccapurple;
+    color: black;
+    margin-top: 100px;
+}
+
+.containerLogin{
+    background-color: rgba(156, 153, 153, 0.349);
+    border-radius:5%;
+    position: relative;
+    width: auto;
+    height: auto;
 }
 
 
@@ -95,7 +112,7 @@ article{
     font-weight: 600;
     font-size: 3rem;
     line-height: 3.75rem;
-    color: rgb(255, 255, 255);
+    color: black;
     margin-top: 5rem;
 }
 
@@ -111,7 +128,7 @@ article{
      font-weight: 600;
      font-size: 1.3rem;
      line-height: 3.75rem;
-     color: white;
+     color: black;
 
 }
 
@@ -133,7 +150,7 @@ article{
 
 .botonLogin{
     width: 10rem;
-    background-color: rgb(152, 150, 150);
+    background-color: orangered;
 }
 
 .inputCrear{
@@ -147,12 +164,27 @@ article{
 
 }
 
+.btn{
+    background-color: orangered;
+    margin-bottom: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-color: bisque;
+    color: white;
+
+}
 #inputproc{
     height: 300px;
 }
 
 .botonCrear{
     margin-left: 40px;
+}
+
+.tituloCrear{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    margin-top: 70px;
 }
 
 
@@ -278,3 +310,17 @@ html, body{
     font-weight: 100;
 }
 
+/* ----------------------------------------------------------------------------------- */
+/* ------------------------------------RECETA BLOG------------------------------------------ */
+/* ----------------------------------------------------------------------------------- */
+
+.tituloReceta{
+    text-align: center;
+    margin-top: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.cuerpo{
+    justify-content: center;
+}

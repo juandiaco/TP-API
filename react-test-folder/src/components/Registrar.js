@@ -6,7 +6,7 @@ function Registrar(){
     return (
         <div>
             <div > 
-            Las mejores recetas en un sólo lugar.
+            <h1 className='tituloCrear'>Las mejores recetas en un sólo lugar.</h1>
             </div>
             <div class="container text-center"  >
                 <Form className='inputLogin'>
@@ -39,6 +39,7 @@ function Registrar(){
                         <Form.Control type="date" placeholder="Ingresas tu correo electrónico" />
 
                     </Form.Group>
+                    <br/>
 
                     <Button variant="primary" type="submit">
                             ¡Listo!

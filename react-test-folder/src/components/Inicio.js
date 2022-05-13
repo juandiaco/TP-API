@@ -2,9 +2,9 @@ import { Carousel } from 'bootstrap';
 import { Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const slide1 = require('./slides-carrusel/slide1.jpg');
-const slide2 = require('./slides-carrusel/slide2.jpg');
-const slide3 = require('./slides-carrusel/slide3.jpg');
+const slide1 = require('./slides-carrusel/slideSushi.jpg');
+const slide2 = require('./slides-carrusel/slideComidas.jpg');
+const slide3 = require('./slides-carrusel/slideEnsaladas.jpg');
 
 
 function Inicio(){
