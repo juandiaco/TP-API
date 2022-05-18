@@ -1,7 +1,4 @@
 import {Form, FormGroup,Button,Navbar,NavDropdown,Nav,Container, Card, Row, Col,ListGroup,ListGroupItem} from 'react-bootstrap';
-import '../css_inicio.css';
-
-
 
 function CardItem(props){
 return(
