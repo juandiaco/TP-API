@@ -84,15 +84,39 @@ article{
 /* ------------------------------------LOGIN------------------------------------------ */
 /* ----------------------------------------------------------------------------------- */
 
-.formcontrol{
+
+
+.formcontrolLogin{
     margin: 0 auto 30px auto;
     display: flex;
     width: 500px;
 }
-.inputLogin{
-    color: bisque;
-    margin-top: 200px;
+
+.formcontrolRegistrar{
+    margin: rem auto 0.5rem auto;
+    display: flex;
+    width: 500px;
 }
+
+
+.inputLogin{
+    color: rgb(9, 9, 9);
+    margin-top: 4rem;
+    
+}
+
+.errorLogin{
+    
+    
+    margin-bottom: 2rem;
+    color: #d11306;
+    width: auto;
+    height: auto;
+    
+}
+
+
+
 
 .containerLogin{
     background-color: rgba(156, 153, 153, 0.349);
@@ -109,6 +133,8 @@ article{
 
 
 }
+
+
 
 
 
@@ -334,3 +360,8 @@ html, body{
 .cuerpo{
     justify-content: center;
 }
+
+
+
+
+
