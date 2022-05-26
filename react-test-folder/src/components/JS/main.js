@@ -7,6 +7,7 @@ import{BrowserRouter as Router, Switch, Route, Routes, Link, NavLink} from "reac
 import MainNavigation from './MainNavigation';
 import CardItem from './cards/cardItem';
 import editarPerfil from './editarPerfil';
+import Footer from './footer';
 
 
 
@@ -69,58 +70,62 @@ const lista = [
 function Main(){
 document.body.style.backgroundColor= "bisque";
  return ( 
-     <div className='wrapper'>
-         <MainNavigation /> 
-         <div id="containerRecetario">
-                <div id="barraLateral">
+     <div>
+        <div className='wrapper'>
+            <MainNavigation /> 
+            <div id="containerRecetario">
+                    <div id="barraLateral">
 
-         <div className='dropdowns'>
-            <DropdownButton id="dropdown-item-button" title="Categoría">
-                <Dropdown.Item as="button">Cena</Dropdown.Item>
-                <Dropdown.Item as="button">Merienda</Dropdown.Item>
-                <Dropdown.Item as="button">Postre</Dropdown.Item>
-            </DropdownButton>
+            <div className='dropdowns'>
+                <DropdownButton id="dropdown-item-button" title="Categoría">
+                    <Dropdown.Item as="button">Cena</Dropdown.Item>
+                    <Dropdown.Item as="button">Merienda</Dropdown.Item>
+                    <Dropdown.Item as="button">Postre</Dropdown.Item>
+                </DropdownButton>
 
-            <br/>
-            <DropdownButton id="dropdown-item-button" title="Ingrediente">
-                <Dropdown.Item as="button">Papa</Dropdown.Item>
-                <Dropdown.Item as="button">Carne</Dropdown.Item>
-                <Dropdown.Item as="button">Chocolate</Dropdown.Item>
-            </DropdownButton>
+                <br/>
+                <DropdownButton id="dropdown-item-button" title="Ingrediente">
+                    <Dropdown.Item as="button">Papa</Dropdown.Item>
+                    <Dropdown.Item as="button">Carne</Dropdown.Item>
+                    <Dropdown.Item as="button">Chocolate</Dropdown.Item>
+                </DropdownButton>
 
-            <br/>
-            <DropdownButton id="dropdown-item-button" title="Dificultad">
-                <Dropdown.Item as="button">Facil</Dropdown.Item>
-                <Dropdown.Item as="button">Intermedia</Dropdown.Item>
-                <Dropdown.Item as="button">Avanzada</Dropdown.Item>
-            </DropdownButton>
-            
-
-        </div>
-        </div>
-        <div id="listadoRecetas">
-            
-            <div>
+                <br/>
+                <DropdownButton id="dropdown-item-button" title="Dificultad">
+                    <Dropdown.Item as="button">Facil</Dropdown.Item>
+                    <Dropdown.Item as="button">Intermedia</Dropdown.Item>
+                    <Dropdown.Item as="button">Avanzada</Dropdown.Item>
+                </DropdownButton>
                 
-            <Row className="g-2">
 
-                {lista.map((card) => (
-                <Col md={6} className='columnaMain'>
-                <CardItem 
-                key={card.id}
-                imagen={card.imagen}
-                titulo={card.titulo}
-                chef={card.chef}
-                descripcion={card.descripcion}
-                dificultad={card.dificultad}
-                categoria={card.categoria}
-                calificacion={card.calificacion} />
-                </Col>
-            ))}
-            </Row>
             </div>
             </div>
-            </div>
+            <div id="listadoRecetas">
+                
+                <div>
+                    
+                <Row className="g-2">
+
+                    {lista.map((card) => (
+                    <Col md={6} className='columnaMain'>
+                    <CardItem 
+                    key={card.id}
+                    imagen={card.imagen}
+                    titulo={card.titulo}
+                    chef={card.chef}
+                    descripcion={card.descripcion}
+                    dificultad={card.dificultad}
+                    categoria={card.categoria}
+                    calificacion={card.calificacion} />
+                    </Col>
+                ))}
+                </Row>
+                </div>
+                </div>
+                </div>
+            
+        </div>
+        <Footer />
     </div>
 );}
 
