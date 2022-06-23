@@ -2,15 +2,13 @@ import React from "react";
 import MainNavigation from "./MainNavigation";
 import {Form, Accordion, AccordionButton, AccordionCollapse, FormGroup,Button,Navbar,NavDropdown,Nav,Container, Card, Row, Col,ListGroup,ListGroupItem, Dropdown, DropdownButton,Tab,Tabs} from 'react-bootstrap';
 
-
 function RecetaCompleta(){
     document.body.style.backgroundColor= "bisque";
     return(
         <div className="wrapper">
             <div>
             <MainNavigation/>
-            </div>
-            
+            </div>     
             <Card className="cardReceta">
                 <Card.Header>
                     <h1>
@@ -24,19 +22,27 @@ function RecetaCompleta(){
                     Categoría: ejemplo, ejemplo2
                     <br/>
                     Dificultad: Avanzado
-                    <Accordion className="accordion">
+                    <Card.Img className="imagenReceta" src="./comidas/cazuelamariscos.jpg" alt="Imagen"/>
+                    <Accordion className="accordionReceta">
                         <Accordion.Item eventKey="0">
-                            <Accordion.Header>
-                                <ListGroup>
-                                    
-                                </ListGroup>
+                            <Accordion.Header className="tituloAccordion">
+                                Ingredientes 
                             </Accordion.Header>
-                                <Accordion.Body> aa </Accordion.Body>
+                                <Accordion.Body> 
+                                    <ListGroup>
+                                        <li>Ingrediente 1</li>
+                                        <li>Ingrediente 2</li>
+                                        <li> Ingrediente 3</li>
+                                        <br/>
+                                    </ListGroup>
+                                </Accordion.Body>
                         </Accordion.Item>
                         <Accordion.Item eventKey="1">
                             <Accordion.Header>Procedimiento</Accordion.Header>
                             <Accordion.Body>
-                                AA
+                                <ListGroup>
+                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                                </ListGroup>
                             </Accordion.Body>
                         </Accordion.Item>
                     </Accordion>

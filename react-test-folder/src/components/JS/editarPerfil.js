@@ -72,7 +72,7 @@ function EditarPerfil(){
                             descripcion={card.descripcion}
                             dificultad={card.dificultad}
                             categoria={card.categoria}
-                            calificacion={card.calificacion} />
+                            calificacion={card.calificacion}/>
                         </Col>
                 ))}
                 </Row>
