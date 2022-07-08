@@ -1,14 +1,15 @@
 
-import { Link, Navigate} from 'react-router-dom';
+import { Link, Navigate, useNavigate} from 'react-router-dom';
 import {Form, FormGroup, Button,} from 'react-bootstrap';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useState, useEffect} from "react";
 
+import {loginController} from "../controller/app-controller";
 
 function Login(){
     document.body.style.backgroundColor= "bisque";
 
-    const initialValues = {username:"", email:"", password:"", password2:"", fecha:""};
+    const initialValues = {email:"", password:""};
     const [formValues, setFormValues] = useState(initialValues)
     const [formErros, setFormErrors] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
@@ -18,20 +19,51 @@ function Login(){
 
         const {name, value} = e.target;
         setFormValues({...formValues, [name]: value});
-        console.log(formValues);
+        console.log("VALUES",formValues);
     }
-    const handleSubmit = (e) => {
+    const handleSubmit = async function(e) {
         e.preventDefault();
         setFormErrors(validate(formValues));
+        if (Object.keys(formErros).length === 0){
+            
+            let user = {
+                email: formValues.email,
+                password: formValues.password
+            }
+            console.log(formValues);
 
-        setIsSubmit(true);
-    }
+            let logear = await loginController(user);
+            console.log("LOGEAR",logear);
+            if (logear.rdo===0 )
+            {
+                console.log("SE LOGEO CARAJO");
+                //setIsSubmit(true);
+                
+                //handleMain();
+                //redirect();
+                navegar('/main');
+            }
+            if (logear.rdo===1)
+            {
+                alert(logear.mensaje)
+            }
+            setIsSubmit(true);
+        }
         
-   
+    }
+    
+    const navegar = useNavigate();
+    const redirect= function(){
+            console.log("PASO POR REDIRECT");
+          return <Navigate to='main' replace={true} />
+        };
+
+
     useEffect(() =>{
         console.log(formErros);
         if (Object.keys(formErros).length === 0 && isSubmit){
             console.log(formValues);
+            console.log("SE REGISTRO EL USUARIO PAPA");
         }
     }, [formErros]);
 
@@ -42,9 +74,6 @@ function Login(){
         const errors = {};
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
 
-        if (!values.username){
-            errors.username = "Ingresa tu nombre";
-        }
 
         if (!values.email){
             errors.email = "Ingresa tu correo electrónico";
@@ -60,21 +89,12 @@ function Login(){
             errors.password = "La contraseña tiene menos de 4 caracteres";
         }
 
-        if(values.password.localeCompare(values.password2) ){
-            errors.password2= "Las contraseñas no coinciden";
-            console.log("contraseñas no coinciden");
-        }
-
-        if(!values.fecha){
-            errors.fecha = "Ingresa tu fecha de nacimiento";
-        }
-        
 
         return errors;
     }
 
     const handleMain = () => {
-        <Navigate to="/main" replace={true} />
+        <Navigate to="main" replace={true} />
     }
 
     return (
@@ -95,9 +115,10 @@ function Login(){
                                         <p className='errorLogin'>{formErros.password}</p>
                                 </Form.Group>
 
-   
-                                <Link class="" to='/main'><button className="btn btn-primary btn-lg btn">¡Listo!</button></Link>
-                                <br/>
+                                <Button variant="primary" type="submit">
+                                    ¡Listo!
+                                </Button>
+                                
                                 <Link class="" to='/RecuperoContraseña'><button className="btn"> Olvidé mi contraseña </button></Link>
                                 
           

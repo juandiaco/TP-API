@@ -1,12 +1,19 @@
 import {Form, FormGroup,Button,Navbar,NavDropdown,Nav,Container, Card, Row, Col,ListGroup,ListGroupItem} from 'react-bootstrap';
 import{BrowserRouter as Router, Switch, Route, Link, NavLink} from "react-router-dom"
 
+import { getLocalStorage } from '../controller/app-controller';
+
+
+
 function MainNavigation(){
 
+let dataUser = getLocalStorage();
+console.log(dataUser.getItem("nombre"));    
 return (
     <div>
     <Navbar bg="light" expand="lg">
         <Container>
+            
             <Navbar.Brand>
                 <Nav.Link as={Link} to="/main">Recetar</Nav.Link>
             </Navbar.Brand>
@@ -21,6 +28,9 @@ return (
                     <NavDropdown.Item href="/Inicio">Cerrar Sesión</NavDropdown.Item>
                 </NavDropdown>
                 </Nav>
+                <Navbar.Text className='justify-content-end'>
+                    <h1 className='text-right'>¡Bienvenido {dataUser.getItem("nombre")}!</h1>
+                </Navbar.Text>
             </Navbar.Collapse>
         </Container>
     </Navbar>
