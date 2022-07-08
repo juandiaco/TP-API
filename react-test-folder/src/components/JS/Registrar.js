@@ -1,6 +1,9 @@
 
 import {Form, FormGroup, Button,} from 'react-bootstrap';
 import { useState, useEffect} from "react";
+import{useNavigate} from 'react-router-dom';
+
+import { createController } from '../controller/app-controller';
 
 function Registrar(){
     
@@ -18,14 +21,40 @@ function Registrar(){
         setFormValues({...formValues, [name]: value});
         console.log(formValues);
     }
-    const handleSubmit = (e) => {
+    const handleSubmit = async function(e) {
         e.preventDefault();
         setFormErrors(validate(formValues));
+        if (Object.keys(formErros).length === 0){
+            let user = {
+                email: formValues.email,
+                password: formValues.password,
+                name: formValues.username,
+                date: formValues.fecha
+            }
+            console.log(formValues);
 
+            let creacion = await createController(user);
+            if (creacion.rdo===0 )
+            {
+                console.log("SE LOGEO CARAJO");
+                //setIsSubmit(true);
+                
+                //handleMain();
+                //redirect();
+                navegar('/main');
+            }
+            if (creacion.rdo===1)
+            {
+                alert(creacion.mensaje)
+            }
+            
+        }
         setIsSubmit(true);
     }
         
-   
+const navegar = useNavigate();   
+
+
     useEffect(() =>{
         console.log(formErros);
         if (Object.keys(formErros).length === 0 && isSubmit){
