@@ -44,9 +44,11 @@ export const loginController = async function (usuario){
                     localStorage.setItem("email",user.email);
                     localStorage.setItem("id",user._id);
                     localStorage.setItem("date",user.date);
+                    localStorage.setItem("password",user.password);
                     console.log("NOMBRE",user.name);
                     console.log("EMAIL",user.email);
                     console.log("ID",localStorage.getItem("id"));
+                    console.log("PASSWORD", localStorage.getItem("password"));
                     
                     return ({rdo:0,mensaje:"Ok"});//correcto
                 }
@@ -110,6 +112,7 @@ export const createController = async function (usuario){
                     localStorage.setItem("email",user.email);
                     localStorage.setItem("id",user._id);
                     localStorage.setItem("date",user.date);
+                    localStorage.setItem("password",user.password);
                     console.log("NOMBRE",user.name);
                     console.log("EMAIL",user.email);
                     console.log("ID",localStorage.getItem("id"));
@@ -133,4 +136,67 @@ export const createController = async function (usuario){
         console.log("error",error);
     };
 }
+
+export const editController = async function (usuario){
+
+    let url = urlWebServices.editarUser;
+    const formData = new URLSearchParams();
+    formData.append('_id', usuario._id);
+    formData.append('password', usuario.password);
+    formData.append('name',usuario.name);
+    
+    console.log("Usuario en controller",usuario);
+
+    try{
+        let response = await fetch(url,{
+            method: "PUT",
+            mode:"cors",
+            headers:{
+                'Accept':'application/x-www-form-urlencoded',
+                'x-access-token': localStorage.getItem("x"),
+                'Origin':'http://localhost:3000',
+                
+                'Content-Type': 'application/x-www-form-urlencoded'},
+            body: formData,
+        });
+        console.log("RESPONSE",response);
+        let respuesta = response.status;
+        //console.log("response", respuesta);
+        
+        let data = await response.json();
+        console.log("jsonresponse",data);
+        
+        switch(respuesta)
+            {
+                case 201:
+                {
+                    
+                    localStorage.setItem("nombre",usuario.name);
+                    
+                    localStorage.setItem("password",usuario.password);
+                    console.log("NOMBRE",localStorage.getItem("nombre"));
+                    console.log("Password",localStorage.getItem("password"));
+                    
+                    return ({rdo:0,mensaje:"Ok"});//correcto
+                }
+                case 400:
+                {
+                    //error mail
+                    return ({rdo:1,mensaje:"Hubo un error"});
+                }
+                default:
+                    {
+                        return({rdo:1,mensaje:"Hubo un error"})
+                    }
+
+            }
+    }
+    catch(error)
+    
+    {
+        console.log("error",error);
+    };
+
+}
+
 

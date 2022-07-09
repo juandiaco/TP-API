@@ -116,9 +116,9 @@ const navegar = useNavigate();
                         <p className='errorLogin'>{formErros.username}</p>
                         
                         
-                </Form.Group>
+                    </Form.Group>
 
-                <Form.Group>
+                    <Form.Group>
                         <Form.Label>Correo Electrónico</Form.Label>
                         <Form.Control className="formcontrolRegistrar" type="text" name="email" placeholder="Ingresa tu correo electrónico" value={formValues.email} onChange={handleChange} />
                         <p className='errorLogin'>{formErros.email}</p>
