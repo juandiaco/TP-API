@@ -1,5 +1,5 @@
 
-import {Form, FormGroup, Button,} from 'react-bootstrap';
+import {Form, FormGroup, Button, Image} from 'react-bootstrap';
 import { useState, useEffect} from "react";
 import{useNavigate} from 'react-router-dom';
 
@@ -9,11 +9,29 @@ function Registrar(){
     
     document.body.style.backgroundColor= "bisque";
 
-    const initialValues = {username:"", email:"", password:"", password2:"", fecha:""};
+    const [fileInputState, setFileInputState] = useState('');
+    const [selectedFile, setSelectedFile] = useState('');
+    const [previewSource, setPreviewSource] = useState("");
+    const reader = new FileReader();
+    const initialValues = {username:"", email:"", password:"", password2:"", fecha:"",imagen:""};
     const [formValues, setFormValues] = useState(initialValues)
     const [formErros, setFormErrors] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
     
+    const handleFileInputChange = (e) => {
+        const file = e.target.files[0];
+        previeFile(file);
+        convertirImagen()
+        
+    }
+
+    const previeFile = (file) =>{
+        reader.readAsDataURL(file);
+        reader.onloadend = () =>{
+            setPreviewSource(reader.result);
+        }
+    }
+
     const handleChange = (e) => {
 
 
@@ -29,9 +47,10 @@ function Registrar(){
                 email: formValues.email,
                 password: formValues.password,
                 name: formValues.username,
-                date: formValues.fecha
+                date: formValues.fecha,
+                perfil: previewSource
             }
-            console.log(formValues);
+            console.log(user);
 
             let creacion = await createController(user);
             if (creacion.rdo===0 )
@@ -52,6 +71,12 @@ function Registrar(){
         setIsSubmit(true);
     }
         
+
+const convertirImagen = function(){
+    console.log(previewSource);
+    
+}    
+
 const navegar = useNavigate();   
 
 
@@ -142,6 +167,15 @@ const navegar = useNavigate();
                         <Form.Control type="date" name="fecha" value={formValues.fecha} onChange={handleChange}/>
                         <p className='errorLogin'>{formErros.fecha}</p>
                     </Form.Group>
+                    
+
+                    <Form.Label className='mb-3' for="customFile"> Subi una foto de perfil </Form.Label>
+                    <Form.Control type="file" id="customFile" name="imagen" value={fileInputState} onChange={handleFileInputChange} />
+                    <br/>
+                    {previewSource && (
+                        <img src={previewSource} style={{height: '75px'}} />
+                    )}
+                    <br/>
                     <br/>
 
                     <Button variant="primary" type="submit">

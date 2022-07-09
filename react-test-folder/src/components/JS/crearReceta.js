@@ -22,7 +22,7 @@ function CrearReceta(){
                 <br/>
 
                 <Form.Group>
-                        <Form.Label>Tiempo Estimado</Form.Label>
+                        <Form.Label>Tiempo Estimado (minutos)</Form.Label>
                         <Form.Control  type="tiempoest" placeholder=""/>               
                     </Form.Group>
                   

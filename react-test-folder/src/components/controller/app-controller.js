@@ -80,6 +80,7 @@ export const createController = async function (usuario){
     formData.append('password', usuario.password);
     formData.append('name',usuario.name);
     formData.append('date',usuario.date);
+    formData.append('perfil',usuario.perfil);
     
     try{
         let response = await fetch(url,{
