@@ -74,31 +74,31 @@ document.body.style.backgroundColor= "bisque";
         <div className='wrapper'>
             <MainNavigation /> 
             <div id="containerRecetario">
-                    <div id="barraLateral">
+                <div id="barraLateral">
 
-            <div className='dropdowns'>
-                <DropdownButton id="dropdown-item-button" title="Categoría">
-                    <Dropdown.Item as="button">Cena</Dropdown.Item>
-                    <Dropdown.Item as="button">Merienda</Dropdown.Item>
-                    <Dropdown.Item as="button">Postre</Dropdown.Item>
-                </DropdownButton>
+                    <div className='dropdowns'>
+                        <DropdownButton id="dropdown-item-button" title="Categoría">
+                            <Dropdown.Item as="button">Cena</Dropdown.Item>
+                            <Dropdown.Item as="button">Merienda</Dropdown.Item>
+                            <Dropdown.Item as="button">Postre</Dropdown.Item>
+                        </DropdownButton>
 
-                <br/>
-                <DropdownButton id="dropdown-item-button" title="Ingrediente">
-                    <Dropdown.Item as="button">Papa</Dropdown.Item>
-                    <Dropdown.Item as="button">Carne</Dropdown.Item>
-                    <Dropdown.Item as="button">Chocolate</Dropdown.Item>
-                </DropdownButton>
+                        <br/>
+                        <DropdownButton id="dropdown-item-button" title="Ingrediente">
+                            <Dropdown.Item as="button">Papa</Dropdown.Item>
+                            <Dropdown.Item as="button">Carne</Dropdown.Item>
+                            <Dropdown.Item as="button">Chocolate</Dropdown.Item>
+                        </DropdownButton>
 
-                <br/>
-                <DropdownButton id="dropdown-item-button" title="Dificultad">
-                    <Dropdown.Item as="button">Facil</Dropdown.Item>
-                    <Dropdown.Item as="button">Intermedia</Dropdown.Item>
-                    <Dropdown.Item as="button">Avanzada</Dropdown.Item>
-                </DropdownButton>
-                
+                        <br/>
+                        <DropdownButton id="dropdown-item-button" title="Dificultad">
+                            <Dropdown.Item as="button">Facil</Dropdown.Item>
+                            <Dropdown.Item as="button">Intermedia</Dropdown.Item>
+                            <Dropdown.Item as="button">Avanzada</Dropdown.Item>
+                        </DropdownButton>
+                        
 
-            </div>
+                    </div>
             </div>
             <div id="listadoRecetas">
                 

@@ -114,10 +114,11 @@ export const createController = async function (usuario){
                     localStorage.setItem("id",user._id);
                     localStorage.setItem("date",user.date);
                     localStorage.setItem("password",user.password);
+                    localStorage.setItem("perfil",user.perfil);
                     console.log("NOMBRE",user.name);
                     console.log("EMAIL",user.email);
                     console.log("ID",localStorage.getItem("id"));
-                    
+                    console.log("PERFIL",localStorage.getItem("perfil"));                    
                     return ({rdo:0,mensaje:"Ok"});//correcto
                 }
                 case 400:

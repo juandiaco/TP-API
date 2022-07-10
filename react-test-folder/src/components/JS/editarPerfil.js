@@ -3,6 +3,8 @@ import {Form,section, FormGroup,Button,Navbar,NavDropdown,Nav,Container,Dropdown
 import CardHeader from "react-bootstrap/esm/CardHeader";
 import MainNavigation from "./MainNavigation";
 import CardItem from "./cards/cardItem";
+import {Image} from "cloudinary-react";
+import { Cloudinary } from "cloudinary-core";
 
 import { editController, getLocalStorage } from "../controller/app-controller";
 
@@ -21,9 +23,10 @@ const lista = [
     },
 ]
 function EditarPerfil(){
+    
     document.body.style.backgroundColor= "bisque";
 
-    const initialValues = {username:"", email:"", password:"", password2:"", fecha:""};
+    const initialValues = {username:"", password:""};
     const [formValues, setFormValues] = useState(initialValues)
     const [formErros, setFormErrors] = useState({});
     
@@ -112,8 +115,8 @@ function EditarPerfil(){
         return errors;
     }
     
-
-
+   const cloudinaryCore = new Cloudinary({cloud_name:'deaivh2un'});
+   const fotoPerfil = almacenamientoLocal.getItem('perfil');
     return(
         <div className="wrapper">
             <div>
@@ -126,7 +129,10 @@ function EditarPerfil(){
                             <Card className="perfilcard">
                                 <CardHeader> Mi Perfil </CardHeader>
                                 <Card.Title id="titulocard"> {almacenamientoLocal.nombre} </Card.Title>
-                                <CardImg class="header" src={"/comidas/pfp.jpg"} alt={"Foto de Perfil"}></CardImg>
+                                
+                                <CardImg src={cloudinaryCore.url(fotoPerfil)} class="header" alt={"Foto de Perfil"}>
+                                
+                                </CardImg>
                                 <Button variant="primary" id="botonheader"> Cambiar Foto </Button>
                                 <Card.Body>
                                     <Form onSubmit={handleSubmit}>
@@ -166,7 +172,7 @@ function EditarPerfil(){
                                     </Form>
                                 </Card.Body>
                                 <Card.Footer>
-                                    
+                                
                                 </Card.Footer>
                             </Card>
 
