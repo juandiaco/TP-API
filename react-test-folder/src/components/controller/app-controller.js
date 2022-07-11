@@ -4,6 +4,78 @@ export const getLocalStorage = function(){
     return localStorage;
 }
 
+export const recetaController = async function (receta){
+    let url = urlWebServices.crearReceta;
+
+    const formData = new URLSearchParams();
+    formData.append ('titulo', receta.titulo);
+    formData.append ('descripcion', receta.descripcion);
+    formData.append ('categoria', receta.categoria);
+    formData.append ('ingredientes', receta.ingredientes);
+    formData.append ('duracion', receta.duracion);
+    formData.append ('updated', receta.updated);
+    formData.append ('dificultad', receta.dificultad);
+    formData.append ('procedimiento', receta.procedimiento);
+
+   try{
+    let response = await fetch (url,{
+        method: "POST",
+        mode:"cors",
+        headers:{
+            'Accept':'application/x-www-form-urlencoded',
+            // 'x-access-token': WebToken.webToken,
+            'Origin':'http://localhost:3000',
+            
+            'Content-Type': 'application/x-www-form-urlencoded'},
+        body: formData,
+    });
+
+    console.log("RESPONSE",response);
+    let respuesta = response.status;
+    //console.log("response", respuesta);
+    
+    let data = await response.json();
+    console.log("jsonresponse",data);
+    switch(respuesta)
+        {
+            case 201:
+            {
+                let re
+                localStorage.setItem("titulo",receta.titulo);
+                localStorage.setItem("descripcion",receta.descripcion);
+                localStorage.setItem("id",receta._id);
+                localStorage.setItem("categoria", receta.categoria);
+                localStorage.setItem("ingredientes",receta.ingredientes);
+                localStorage.setItem("procedimiento",receta.procedimiento);
+                localStorage.setItem("dificultad",receta.dificultad);
+                localStorage.setItem("duracion",receta.duracion);
+                localStorage.setItem("updated",receta.updated);
+
+                console.log("TITULO",receta.titulo);
+                console.log("DESCRIPCION",receta.descripcion);
+                console.log("ID",localStorage.getItem("id"));
+                console.log("CATEGORIA", receta.categoria);
+                console.log("INGREDIENTES", receta.ingredientes);
+                console.log("PROCEDIMIENTO", receta.procedimiento);
+                console.log("DIFICULTAD", receta.dificultad);
+                console.log("DURACION", receta.duracion);
+
+                
+                return ({rdo:0,mensaje:"Ok"});//correcto
+            }
+            default:
+            {
+                //error
+                return ({rdo:1,mensaje:"Ha ocurrido un error"});                
+            }
+        }
+}
+    catch(error)
+    {
+        console.log("error",error);
+    };
+}
+
 export const loginController = async function (usuario){
 
     let url = urlWebServices.login;
