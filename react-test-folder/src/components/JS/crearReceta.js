@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {Form, FormGroup,Button,Navbar,NavDropdown,Nav,Container,Dropdown,DropdownButton} from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { recetaController } from '../controller/app-controller';
@@ -11,7 +11,6 @@ function CrearReceta(){
   const [selectedFile, setSelectedFile] = useState('');
   const [previewSource, setPreviewSource] = useState('');
   const reader = new FileReader();
-
   const initialValues = {titulo: "", descripcion: "", duracion:"", ingredientes: "", dificultad: "", categoria: "", procedimiento: "", calificacion: ""};
   const [formValues, setFormValues] = useState(initialValues);
   const [formErros, setFormErrors] = useState({});
@@ -24,6 +23,8 @@ function CrearReceta(){
   }
 
   const handleSubmit = async function (e) {
+    e.preventDefault();
+    setFormErrors(validate(formValues));
     if (Object.keys(formErros).length === 0){
       let receta={
         titulo: formValues.titulo,
@@ -33,9 +34,36 @@ function CrearReceta(){
         categoria:formErros.categoria,
         procedimiento:formErros.procedimiento
       }
+      console.log(receta);
 
+      let creacion = await recetaController(receta);
+      if (creacion.rdo===0){
+        navegar('/main');
+      }
     }
+    setIsSubmit(true);
   }
+
+  const navegar = useNavigate();
+
+  useEffect(() =>{
+    console.log(formErros);
+    if (Object.keys(formErros).length === 0 && isSubmit){
+      console.log(formValues);
+    }
+  }, [formErros]);
+
+  const validate = (values) => {
+    const errors = {};
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+
+    if (!values.titulo){
+      errors.titulo = "Ingresa el titulo";
+    }
+    return errors;
+  }
+
+
 
     return (
         <div> 
@@ -51,6 +79,7 @@ function CrearReceta(){
                     <Form.Group>
                         <Form.Label>Título</Form.Label>
                         <Form.Control  type="titulo" placeholder="" value={formValues.titulo} onChange={handleChange}/>
+                        <p className='errortitulo'>{formErros.titulo}</p>
                 </Form.Group>
                 <br/>
 

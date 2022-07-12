@@ -6,8 +6,8 @@ export const getLocalStorage = function(){
 
 export const recetaController = async function (receta){
     let url = urlWebServices.crearReceta;
-
     const formData = new URLSearchParams();
+
     formData.append ('titulo', receta.titulo);
     formData.append ('descripcion', receta.descripcion);
     formData.append ('categoria', receta.categoria);
@@ -36,6 +36,7 @@ export const recetaController = async function (receta){
     
     let data = await response.json();
     console.log("jsonresponse",data);
+    
     switch(respuesta)
         {
             case 201:
