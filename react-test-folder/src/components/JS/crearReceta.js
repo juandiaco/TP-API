@@ -1,9 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {Form, FormGroup,Button,Navbar,NavDropdown,Nav,Container,Dropdown,DropdownButton} from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import MainNavigation from './MainNavigation';
 
 function CrearReceta(){
   document.body.style.backgroundColor= "bisque";
+
+  const [fileInputState, setFileInputState] = useState('');
+  const [selectedFile, setSelectedFile] = useState('');
+  const [previewSource, setPreviewSource] = useState('');
+  const reader = new FileReader();
+
+  const initialValues = {titulo: "", descripcion: "", duracion:"", ingredientes: "", dificultad: "", categoria: "", procedimiento: ""};
+  const [formValues, setFormValues] = useState(initialValues);
+  const [formErros, setFormErrors] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false);
+
+
+  const handleChange = (e) =>{
+    const {titulo, value} = e.target;
+    setFormValues ({...formValues, [titulo]: value});
+    console.log(formValues);
+  }
+
     return (
         <div> 
           <MainNavigation /> 
@@ -17,13 +36,13 @@ function CrearReceta(){
                     </div>
                     <Form.Group>
                         <Form.Label>Título</Form.Label>
-                        <Form.Control  type="titulo" placeholder="" />
+                        <Form.Control  type="titulo" placeholder="" value={formValues.titulo} onChange={handleChange}/>
                 </Form.Group>
                 <br/>
 
                 <Form.Group>
                         <Form.Label>Tiempo Estimado (minutos)</Form.Label>
-                        <Form.Control  type="tiempoest" placeholder=""/>               
+                        <Form.Control  type="tiempoest" placeholder="" value={formValues.duracion} onChange={handleChange}/>               
                     </Form.Group>
                   
                 <br/>
@@ -44,7 +63,7 @@ function CrearReceta(){
 
                     <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                        <Form.Label>Procedimiento</Form.Label>
-                       <Form.Control id="inputproc" as="textarea" rows={3} />
+                       <Form.Control id="inputproc" as="textarea" rows={3} value={formValues.procedimiento} onChange={handleChange}/>
                        </Form.Group>
 
                     <br/>
