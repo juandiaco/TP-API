@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {Form, FormGroup,Button,Navbar,NavDropdown,Nav,Container,Dropdown,DropdownButton} from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { recetaController } from '../controller/app-controller';
 import MainNavigation from './MainNavigation';
 
 function CrearReceta(){
@@ -11,17 +12,36 @@ function CrearReceta(){
   const [previewSource, setPreviewSource] = useState('');
   const reader = new FileReader();
 
-  const initialValues = {titulo: "", descripcion: "", duracion:"", ingredientes: "", dificultad: "", categoria: "", procedimiento: ""};
+  const initialValues = {titulo: "", descripcion: "", duracion:"", ingredientes: "", dificultad: "", categoria: "", procedimiento: "", calificacion: ""};
   const [formValues, setFormValues] = useState(initialValues);
   const [formErros, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
-
 
   const handleChange = (e) =>{
     const {titulo, value} = e.target;
     setFormValues ({...formValues, [titulo]: value});
     console.log(formValues);
   }
+
+  const handleSubmit = async function (e) {
+    if (Object.keys(formErros).length === 0){
+      let receta={
+        titulo: formValues.titulo,
+        descripcion:formValues.duracion,
+        ingredientes:formValues.ingredientes,
+        dificultad:formErros.dificultad,
+        categoria:formErros.categoria,
+        procedimiento:formErros.procedimiento
+      }
+
+      let creacion = await recetaController(receta);
+      if (creacion.rdo===0){
+        navegar('/main');
+      }
+
+      
+      }
+    }
 
     return (
         <div> 
@@ -30,7 +50,7 @@ function CrearReceta(){
                         width: 700, 
                         padding: 30,
                         margin: "auto",}}>
-            <Form className='rounded p-4 p-sm-3'>
+            <Form className='rounded p-4 p-sm-3' onSubmit={handleSubmit}>
                     <div>
                         <h2 class="text-center">  Nueva Receta</h2>
                     </div>

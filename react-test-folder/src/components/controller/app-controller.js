@@ -40,7 +40,6 @@ export const recetaController = async function (receta){
         {
             case 201:
             {
-                let re
                 localStorage.setItem("titulo",receta.titulo);
                 localStorage.setItem("descripcion",receta.descripcion);
                 localStorage.setItem("id",receta._id);
