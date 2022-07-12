@@ -34,14 +34,8 @@ function CrearReceta(){
         procedimiento:formErros.procedimiento
       }
 
-      let creacion = await recetaController(receta);
-      if (creacion.rdo===0){
-        navegar('/main');
-      }
-
-      
-      }
     }
+  }
 
     return (
         <div> 
