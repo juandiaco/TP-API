@@ -13,10 +13,11 @@ function CrearReceta(){
   const [selectedFile, setSelectedFile] = useState('');
   const [previewSource, setPreviewSource] = useState('');
   const reader = new FileReader();
-  const initialValues = {titulo: "", duracion:"", ingredientes: "", dificultad: "", categoria: "", procedimiento: "", borrador: ""};
+  const initialValues = {titulo: "", duracion:"", ingredientes: "", dificultad: "", categoria: "Nada", procedimiento: "", borrador: ""};
   const [formValues, setFormValues] = useState(initialValues);
   const [formErros, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
+  const [categorias, setCategorias] = useState("");
 
   const onChangeNumber = (e) =>{
     const re = /^[0-9\b]+$/;
@@ -59,13 +60,14 @@ function CrearReceta(){
       if (Object.keys(formErros).length === 0){
         let receta ={
           titulo: formValues.titulo,
-          categoria: formValues.categoria,
+          categoria: categorias,
           ingredientes: formValues.ingredientes,
           duracion: formValues.duracion,
           dificultad: formValues.dificultad,
           procedimiento: formValues.procedimiento,
           borrador: true,
           creador: localStorage.getItem("id")
+
           
         }
         console.log("RECETA",receta);
@@ -84,17 +86,63 @@ function CrearReceta(){
 
   const validate = (values) => {
     const errors = {};
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    
 
     if (!values.titulo){
       errors.titulo = "Ingresa el titulo";
     }
+
+    if(!values.duracion){
+      errors.duracion = "Ingresa la duración";
+    }
+
+    if(!values.ingredientes){
+      errors.ingredientes = "Ingresar ingredientes";
+    }
+
+    if(!values.dificultad){
+      errors.dificultad = "Seleccionar dificultad";
+    }
+
+    if(formValues.categoria.includes("Desayuno") === false && formValues.categoria.includes("Almuerzo") === false && formValues.categoria.includes("Merienda") === false && formValues.categoria.includes("Cena") === false){
+      errors.categoria = "Ingresar categoria/s";
+    }
+
+    if(!formValues.procedimiento){
+      errors.procedimiento = "Ingresar el procedimiento";
+    }
+
+
+
     return errors;
-
-
-
   }
 
+  const handleCheckBox = (e) =>{
+    let varForm = formValues.categoria;
+    console.log("VARFORM",varForm);
+    if(e.target.checked){
+       if(varForm.localeCompare("Nada") !== 0){
+
+          console.log("MAAS");
+          varForm = varForm + "|" + e.target.value;
+          
+        }
+        else{
+          varForm = e.target.value;
+          console.log("VACIOOO");
+        }
+        console.log(varForm);
+    }
+    else{
+      varForm = varForm.replace(e.target.value,"");
+    
+    }
+    
+    setCategorias(varForm);
+    setFormValues({...formValues, categoria: varForm});
+    console.log("CHECKBOX", formValues);
+    
+  }
 
 
     return (
@@ -111,45 +159,55 @@ function CrearReceta(){
                     <Form.Group>
                         <Form.Label>Título</Form.Label>
                         <Form.Control  type="text" name="titulo" placeholder="Titulo de la receta" value={formValues.titulo} onChange={handleChange}/>
-                        <p className='errortitulo'>{formErros.titulo}</p>
+                        <p className='errorLogin'>{formErros.titulo}</p>
                 </Form.Group>
                 <br/>
 
                 <Form.Group>
                         <Form.Label>Tiempo Estimado (minutos)</Form.Label>
-                        <Form.Control  type="text" pattern='[0-9]*' placeholder=""  onChange={onChangeNumber}/>               
-                        
+                        <Form.Control  type="number" name="duracion" value={formValues.duracion} onChange={handleChange}/>               
+                        <p className='errorLogin'>{formErros.duracion}</p>
                     </Form.Group>
                   
                 <br/>
 
-                <DropdownButton name="dificultad" title="Seleccionar Dificultad" value={formValues.dificultad} onChange={handleChange}>
-                  <Dropdown.Item>Fácil</Dropdown.Item>
-                  <Dropdown.Item>Intermedia</Dropdown.Item>
-                  <Dropdown.Item>Avanzada</Dropdown.Item>
-                  </DropdownButton>
-                
+                <Form.Group>
+                    <Form.Label>Seleccionar Dificultad</Form.Label>
+                    <br/>
+                    <select value="Seleccionar Dificultad" name='dificultad' onChange={handleChange}>
+                      <option value="Seleccionar Dificultad">Seleccionar Dificultad</option>
+                      <option value="Facil">Facil</option>
+                      <option value="Intermedia">Intermedia</option>
+                      <option value="Avanzada">Avanzada</option>
+                    </select>
+                    <p className='errorLogin'>{formErros.dificultad}</p>
+                  </Form.Group>
+                  <br/>
                   <br/>
 
-                  <select value="Seleccionar Dificultad" name='dificultad' onChange={handleChange}>
-                    <option value="Seleccionar Dificultad">Seleccionar Dificultad</option>
-                    <option value="Facil">Facil</option>
-                    <option value="Intermedia">Intermedia</option>
-                    <option value="Avanzada">Avanzada</option>
-                  </select>
+                  <Form.Group>
+                    <Form.Label>Seleccionar Categoria</Form.Label>
+                    <br/>
 
-                  <br/>
+                    <Form.Check value="Desayuno" label="Desayuno" onChange={handleCheckBox}></Form.Check>
+                    <Form.Check value="Almuerzo" label="Almuerzo" onChange={handleCheckBox}></Form.Check>
+                    <Form.Check value="Merienda" label="Merienda" onChange={handleCheckBox}></Form.Check>
+                    <Form.Check value="Cena" label="Cena" onChange={handleCheckBox}></Form.Check>
+                    <p className='errorLogin'>{formErros.categoria}</p>
+                  </Form.Group>
 
                     <Form.Group>
                         <Form.Label>Ingredientes necesarios</Form.Label>
                         <Form.Control type="text" name="ingredientes" as='textarea' placeholder="Lista de Ingredientes" value={formValues.ingredientes} onChange={handleChange} />
+                        <p className='errorLogin'>{formErros.ingredientes}</p>
                     </Form.Group>
                     <br/>
 
                     <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                        <Form.Label>Procedimiento</Form.Label>
                        <Form.Control type="text" name="procedimiento" as="textarea" rows={3} value={formValues.procedimiento} onChange={handleChange}/>
-                       </Form.Group>
+                       <p className='errorLogin'>{formErros.procedimiento}</p> 
+                      </Form.Group>
 
                     <br/>
 
