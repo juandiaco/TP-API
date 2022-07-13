@@ -10,7 +10,7 @@ function Registrar(){
     document.body.style.backgroundColor= "bisque";
 
     const [fileInputState, setFileInputState] = useState('');
-    const [selectedFile, setSelectedFile] = useState('');
+   
     const [previewSource, setPreviewSource] = useState("");
     const reader = new FileReader();
     const initialValues = {username:"", email:"", password:"", password2:"", fecha:"",imagen:""};
