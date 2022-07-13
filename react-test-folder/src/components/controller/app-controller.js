@@ -9,13 +9,13 @@ export const recetaController = async function (receta){
     const formData = new URLSearchParams();
 
     formData.append ('titulo', receta.titulo);
-    formData.append ('descripcion', receta.descripcion);
     formData.append ('categoria', receta.categoria);
     formData.append ('ingredientes', receta.ingredientes);
     formData.append ('duracion', receta.duracion);
     formData.append ('updated', receta.updated);
     formData.append ('dificultad', receta.dificultad);
     formData.append ('procedimiento', receta.procedimiento);
+    formData.append ('fotoReceta', receta.fotoreceta);
 
    try{
     let response = await fetch (url,{
@@ -36,13 +36,12 @@ export const recetaController = async function (receta){
     
     let data = await response.json();
     console.log("jsonresponse",data);
-    
+
     switch(respuesta)
         {
             case 201:
             {
                 localStorage.setItem("titulo",receta.titulo);
-                localStorage.setItem("descripcion",receta.descripcion);
                 localStorage.setItem("id",receta._id);
                 localStorage.setItem("categoria", receta.categoria);
                 localStorage.setItem("ingredientes",receta.ingredientes);
@@ -50,15 +49,16 @@ export const recetaController = async function (receta){
                 localStorage.setItem("dificultad",receta.dificultad);
                 localStorage.setItem("duracion",receta.duracion);
                 localStorage.setItem("updated",receta.updated);
+                localStorage.setItem("fotoReceta", receta.fotoreceta);
 
                 console.log("TITULO",receta.titulo);
-                console.log("DESCRIPCION",receta.descripcion);
                 console.log("ID",localStorage.getItem("id"));
                 console.log("CATEGORIA", receta.categoria);
                 console.log("INGREDIENTES", receta.ingredientes);
                 console.log("PROCEDIMIENTO", receta.procedimiento);
                 console.log("DIFICULTAD", receta.dificultad);
                 console.log("DURACION", receta.duracion);
+                console.log("FOTORECETA",localStorage.getItem("fotoReceta"));
 
                 
                 return ({rdo:0,mensaje:"Ok"});//correcto
