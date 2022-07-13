@@ -11,10 +11,27 @@ function CrearReceta(){
   const [selectedFile, setSelectedFile] = useState('');
   const [previewSource, setPreviewSource] = useState('');
   const reader = new FileReader();
-  const initialValues = {titulo: "", descripcion: "", duracion:"", ingredientes: "", dificultad: "", categoria: "", procedimiento: "", calificacion: ""};
+  const initialValues = {titulo: "", duracion:"", ingredientes: "", dificultad: "", categoria: "", procedimiento: "", calificacion: ""};
   const [formValues, setFormValues] = useState(initialValues);
   const [formErros, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
+
+  const convertirImagen = function (){
+    console.log(previewSource);
+  }
+  const handleFileInputChange = (e) => {
+    const file = e.target.files[0];
+    previeFile(file);
+    convertirImagen()
+
+  }
+
+  const previeFile = (file) =>{
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setPreviewSource(reader.result);
+    }
+  }
 
   const handleChange = (e) =>{
     const {titulo, value} = e.target;
@@ -28,11 +45,12 @@ function CrearReceta(){
     if (Object.keys(formErros).length === 0){
       let receta={
         titulo: formValues.titulo,
-        descripcion:formValues.duracion,
+        duracion:formValues.duracion,
         ingredientes:formValues.ingredientes,
-        dificultad:formErros.dificultad,
-        categoria:formErros.categoria,
-        procedimiento:formErros.procedimiento
+        dificultad:formValues.dificultad,
+        categoria:formValues.categoria,
+        procedimiento:formValues.procedimiento,
+        fotoreceta: previewSource
       }
       console.log(receta);
 
@@ -78,14 +96,14 @@ function CrearReceta(){
                     </div>
                     <Form.Group>
                         <Form.Label>Título</Form.Label>
-                        <Form.Control  type="titulo" placeholder="" value={formValues.titulo} onChange={handleChange}/>
-                        <p className='errortitulo'>{formErros.titulo}</p>
+                        <Form.Control type="text" name="titulo" placeholder="" value={formValues.titulo} onChange={handleChange}/>
+                     
                 </Form.Group>
                 <br/>
 
                 <Form.Group>
                         <Form.Label>Tiempo Estimado (minutos)</Form.Label>
-                        <Form.Control  type="tiempoest" placeholder="" value={formValues.duracion} onChange={handleChange}/>               
+                        <Form.Control  type="text" placeholder="" value={formValues.duracion} onChange={handleChange}/>               
                     </Form.Group>
                   
                 <br/>
@@ -112,7 +130,7 @@ function CrearReceta(){
                     <br/>
 
                     <Form.Label className='mb-3' for="customFile"> Subi una foto </Form.Label>
-                    <Form.Control type="file" id="customFile" />
+                    <Form.Control type="file" id="customFile"  va/>
 
                     <br/>
                     
