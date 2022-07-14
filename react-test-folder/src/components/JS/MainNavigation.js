@@ -21,6 +21,7 @@ return (
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
                 <Nav.Link as={Link} to="/Recetario">Mi Recetario</Nav.Link>
+                <Nav.Link as={Link} to="/misRecetas">Mis Recetas</Nav.Link>
                 <Nav.Link as={Link} to="/crearReceta">Crear</Nav.Link>
                 <NavDropdown title="Perfil" id="basic-nav-dropdown">
                     <NavDropdown.Item href="/editarPerfil">Editar Perfil</NavDropdown.Item>

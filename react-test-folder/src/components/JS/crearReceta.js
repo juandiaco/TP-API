@@ -7,6 +7,8 @@ import { getLocalStorage } from '../controller/app-controller';
 
 
 function CrearReceta(){
+
+  
   document.body.style.backgroundColor= "bisque";
 
   const [fileInputState, setFileInputState] = useState('');
@@ -32,27 +34,7 @@ function CrearReceta(){
     console.log(formValues);
   }
 
-  const handleSubmit = async function (e) {
-    e.preventDefault();
-    setFormErrors(validate(formValues));
-    if (Object.keys(formErros).length === 0){
-      let receta={
-        titulo: formValues.titulo,
-        descripcion:formValues.duracion,
-        ingredientes:formValues.ingredientes,
-        dificultad:formErros.dificultad,
-        categoria:formErros.categoria,
-        procedimiento:formErros.procedimiento
-      }
-      console.log(receta);
 
-      /*let creacion = await recetaController(receta);
-      if (creacion.rdo===0){
-        navegar('/main');
-      }*/
-    }
-    setIsSubmit(true);
-  }
 
   const handleBorrador = async function (e) {
       e.preventDefault();
@@ -71,9 +53,46 @@ function CrearReceta(){
           
         }
         console.log("RECETA",receta);
+        let creacion = await recetaController(receta);
+        if (creacion.rdo===0 )
+            {
+                console.log("SE CREO RECETA CARAJO");
+                //setIsSubmit(true);
+                
+                //handleMain();
+                //redirect();
+                navegar('/main');
+            }
+            if (creacion.rdo===1)
+            {
+                alert(creacion.mensaje)
+            }
+             
       }
       
   }
+
+  const handlePublicar = async function (e) {
+    e.preventDefault();
+    setFormErrors(validate(formValues));
+    if (Object.keys(formErros).length === 0){
+      let receta ={
+        titulo: formValues.titulo,
+        categoria: categorias,
+        ingredientes: formValues.ingredientes,
+        duracion: formValues.duracion,
+        dificultad: formValues.dificultad,
+        procedimiento: formValues.procedimiento,
+        borrador: false,
+        creador: localStorage.getItem("id")
+
+        
+      }
+      console.log("RECETA",receta);
+    }
+    
+}
+
 
   const navegar = useNavigate();
 
@@ -152,7 +171,7 @@ function CrearReceta(){
                         width: 700, 
                         padding: 30,
                         margin: "auto",}}>
-            <Form className='rounded p-4 p-sm-3' onSubmit={handleSubmit}>
+            <Form className='rounded p-4 p-sm-3'>
                     <div>
                         <h2 class="text-center">  Nueva Receta</h2>
                     </div>
@@ -216,7 +235,7 @@ function CrearReceta(){
 
                     <br/>
                     
-                    <Button id= "btncrear" variant="primary" type="submit">
+                    <Button id= "btncrear" variant="primary" type="submit" onClick={handlePublicar}>
                             Publicar
                     </Button>
 

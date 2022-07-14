@@ -4,6 +4,8 @@ export const getLocalStorage = function(){
     return localStorage;
 }
 
+export var localRecetas;
+
 export const recetaController = async function (receta){
     let url = urlWebServices.crearReceta;
     const formData = new URLSearchParams();
@@ -12,10 +14,11 @@ export const recetaController = async function (receta){
     formData.append ('categoria', receta.categoria);
     formData.append ('ingredientes', receta.ingredientes);
     formData.append ('duracion', receta.duracion);
-    formData.append ('updated', receta.updated);
     formData.append ('dificultad', receta.dificultad);
     formData.append ('procedimiento', receta.procedimiento);
-    formData.append ('fotoReceta', receta.fotoreceta);
+    formData.append('creador',receta.creador);
+    formData.append('borrador', receta.borrador);
+    //formData.append ('fotoReceta', receta.fotoreceta);
 
    try{
     let response = await fetch (url,{
@@ -23,7 +26,7 @@ export const recetaController = async function (receta){
         mode:"cors",
         headers:{
             'Accept':'application/x-www-form-urlencoded',
-            // 'x-access-token': WebToken.webToken,
+            'x-access-token': localStorage.getItem('x'),
             'Origin':'http://localhost:3000',
             
             'Content-Type': 'application/x-www-form-urlencoded'},
@@ -75,6 +78,60 @@ export const recetaController = async function (receta){
         console.log("error",error);
     };
 }
+
+
+export const misRecetasController = async function(creador){
+    let url = urlWebServices.misRecetas;
+    const formData = new URLSearchParams();
+    formData.append('creador',localStorage.getItem("id"));
+    console.log("CREADOR", localStorage.getItem("id"));
+
+    try{
+        let response = await fetch(url,{
+            method: "GET",
+            mode:"cors",
+            headers:{
+                'creador': localStorage.getItem("id"),
+                'Accept':'application/x-www-form-urlencoded',
+                'x-access-token': localStorage.getItem("x"),
+                'Origin':'http://localhost:3000',
+                'Content-Type': 'application/x-www-form-urlencoded'},
+            
+        });
+        console.log("RESPONSE", response);
+        let respuesta = response.status;
+        let data = await response.json();
+        console.log("jsonresponse",data);
+        switch(respuesta)
+            {
+                case 201:
+                {
+                    let recetas = data.recetasEncontradas;
+                    localRecetas = recetas;
+                    console.log("LOCAL RECETAS",localRecetas);
+                    return ({rdo:0,mensaje:"Ok"});//correcto
+                }
+                case 400:
+                {
+                    //error mail
+                    return ({rdo:1,mensaje:"El mail o la contraseña no son correctos."});
+                }
+
+                default:
+                {
+                    //otro error
+                    return ({rdo:1,mensaje:"Ha ocurrido un error"});                
+                }
+            }
+    }
+    catch(error)
+    {
+        console.log("error",error);
+    };
+
+
+}
+
 
 export const loginController = async function (usuario){
 
