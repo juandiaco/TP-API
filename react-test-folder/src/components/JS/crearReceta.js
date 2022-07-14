@@ -21,6 +21,24 @@ function CrearReceta(){
   const [isSubmit, setIsSubmit] = useState(false);
   const [categorias, setCategorias] = useState("");
 
+  const previeFile = (file) =>{
+    reader.readAsDataURL(file);
+    reader.onloadend = () =>{
+      setPreviewSource(reader.result);
+    }
+  }
+
+  const convertirImagen = function (){
+    console.log(previewSource);
+  }
+
+  const handleFileInputChange=(e) => {
+    const file = e.target.files[0];
+    previeFile(file);
+    convertirImagen()
+  }
+
+
   const onChangeNumber = (e) =>{
     const re = /^[0-9\b]+$/;
     if (e.target.value === '' || re.test(e.target.value)) {
@@ -84,7 +102,8 @@ function CrearReceta(){
         dificultad: formValues.dificultad,
         procedimiento: formValues.procedimiento,
         borrador: false,
-        creador: localStorage.getItem("id")
+        creador: localStorage.getItem("id"),
+        fotoReceta: previewSource
 
         
       }
@@ -217,7 +236,7 @@ function CrearReceta(){
 
                     <Form.Group>
                         <Form.Label>Ingredientes necesarios</Form.Label>
-                        <Form.Control type="text" name="ingredientes" as='textarea' placeholder="Lista de Ingredientes" value={formValues.ingredientes} onChange={handleChange} />
+                        <Form.Control type="array" name="ingredientes" as='textarea' placeholder="Lista de Ingredientes" value={formValues.ingredientes} onChange={handleChange} />
                         <p className='errorLogin'>{formErros.ingredientes}</p>
                     </Form.Group>
                     <br/>
@@ -231,7 +250,7 @@ function CrearReceta(){
                     <br/>
 
                     <Form.Label className='mb-3' for="customFile"> Subi una foto </Form.Label>
-                    <Form.Control type="file" id="customFile" />
+                    <Form.Control type="file" id="customFile" name="imagenReceta" value={fileInputState} onChange={handleFileInputChange} />
 
                     <br/>
                     

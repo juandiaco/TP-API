@@ -18,6 +18,7 @@ export const recetaController = async function (receta){
     formData.append ('procedimiento', receta.procedimiento);
     formData.append('creador',receta.creador);
     formData.append('borrador', receta.borrador);
+    formData.append('fotoReceta', receta.fotoreceta);
     //formData.append ('fotoReceta', receta.fotoreceta);
 
    try{
