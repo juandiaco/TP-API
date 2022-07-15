@@ -69,9 +69,10 @@ const lista = [
 
 function Main(){
 document.body.style.backgroundColor= "bisque";
+traerRecetas();
 let almacenamientoLocal = getLocalStorage();
-let recetas = almacenamientoLocal.getObj("recetas");
-console.log("recetas pagina",recetas);
+let recetas = almacenamientoLocal.getObj("recetasPublicadas");
+console.log("recetas pagina",almacenamientoLocal.getObj("recetasPublicadas"));
  return ( 
      <div>
         <div className='wrapper'>
@@ -106,7 +107,22 @@ console.log("recetas pagina",recetas);
             <div id="listadoRecetas">
                 
                 <div>
-                    
+                <Row className="g-2">
+
+                {recetas.map((card) => (
+                <Col md={6} className='columnaMain'>
+                <CardItem 
+                key={card.id}
+                imagen={card.imagenReceta}
+                titulo={card.titulo}
+                chef={card.creador}
+                dificultad={card.dificultad}
+                categoria={card.categoria}
+                calificacion={card.puntaje}
+                />
+                </Col>
+                ))}
+                </Row>
 
                 </div>
                 </div>

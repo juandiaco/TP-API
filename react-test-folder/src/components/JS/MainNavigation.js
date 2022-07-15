@@ -15,7 +15,7 @@ console.log("ID USUARIO",dataUser.getItem("id"))
 const navegar = useNavigate();
 
 const handleMisRecetas = async function (){
-    console.log("AAAAAA");
+    
     misRecetasController();
     navegar('/misRecetas');
 }
