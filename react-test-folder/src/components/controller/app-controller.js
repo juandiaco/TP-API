@@ -247,11 +247,74 @@ export const deleteRecetaController = async function (receta){
 
 
 
+export const filtrarRecetaController = async function (filtros){
+    let url = urlWebServices.filtrarRecetas;
+    const formData = new URLSearchParams();
+    formData.append("categoria",filtros.categoria);
+    formData.append("ingredientes",filtros.ingredientes);
+    formData.append("dificultad",filtros.dificultad);
+    try{
+        let response = await fetch (url,{
+            method: "POST",
+            mode:"cors",
+            headers:{
+                'Accept':'application/x-www-form-urlencoded',
+                'Origin':'http://localhost:3000',
+                'Content-Type': 'application/x-www-form-urlencoded'},
+            body: formData,
+        });
+        console.log("RESPONSE", response);
+        let respuesta = response.status;
+        let data = await response.json();
+        console.log("jsonresponse",data);
+        switch(respuesta)
+            {
+                case 201:
+                {
+                    let recetas = data.recetasEncontradas;
+                    //localRecetas = recetas;
+                    
+                    localStorage.setObj("recetasFiltradas",recetas);
+                    console.log("LOCAL RECETAS",localStorage.getObj("recetasFiltradas"));
+                    return ({rdo:0,mensaje:"Ok"});//correcto
+                    
+                }
+                case 400:
+                {
+                    //error mail
+                    return ({rdo:1,mensaje:"Ha ocurrido un error"});
+                }
+
+                default:
+                {
+                    //otro error
+                    return ({rdo:1,mensaje:"Ha ocurrido un error"});                
+                }
+            }
+
+
+
+    }
+    catch(error)
+        {
+            console.log("error",error);
+            
+        };
+
+}
+
+
+
+
+
 
 
 
 ///-------------------------------------------------USUARIO---------------------------------------------------
-
+///----------------------------------------------------------------------------------------------------
+///----------------------------------------------------------------------------------------------------
+///----------------------------------------------------------------------------------------------------
+///----------------------------------------------------------------------------------------------------
 export const loginController = async function (usuario){
 
     let url = urlWebServices.login;

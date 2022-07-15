@@ -12,6 +12,7 @@ import EditarPerfil from './components/JS/editarPerfil';
 import RecetaCompleta from './components/JS/recetaCompleta';
 import RecuperoContraseña from './components/JS/recuperoContraseña';
 import MisRecetas from './components/JS/misRecetas';
+import RecetasFiltradas from './components/JS/recetasFiltradas';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
       <Route path='recetaCompleta' element={<RecetaCompleta />} />
       <Route path='recuperoContraseña' element={<RecuperoContraseña />} />
       <Route path='misRecetas' element={<MisRecetas />}/>
+      <Route path='filtroRecetas' element={<RecetasFiltradas />}/>
       
     </Routes>
   </div>

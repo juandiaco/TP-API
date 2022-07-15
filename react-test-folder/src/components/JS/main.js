@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {Form, FormGroup,Button,Navbar,NavDropdown,Nav,Container, Card, Row, Col,ListGroup,ListGroupItem, Dropdown, DropdownButton} from 'react-bootstrap';
 import './main.css';
 import CrearReceta from './crearReceta';
 import Recetario from './recetario'
 import{BrowserRouter as Router, Switch, Route, Routes, Link, NavLink} from "react-router-dom"
+import { useNavigate } from 'react-router-dom';
 import MainNavigation from './MainNavigation';
 import CardItem from './cards/cardItem';
 import editarPerfil from './editarPerfil';
 import Footer from './footer';
-import { traerRecetas, getLocalStorage } from '../controller/app-controller';
+import { traerRecetas, getLocalStorage, filtrarRecetaController } from '../controller/app-controller';
 
 
 
@@ -68,11 +69,86 @@ const lista = [
 
 
 function Main(){
+const initialValues = {categoria: "", ingredientes:"", dificultad:""};  
+const [filtroState,setFiltroState] = useState(initialValues);  
+const [categoriaState,setCategoriaState] = useState('');
+const [ingredientesState,setIngredientesState] = useState('');
+const [dificultadState,setDificultadState] = useState('');
 document.body.style.backgroundColor= "bisque";
 traerRecetas();
 let almacenamientoLocal = getLocalStorage();
 let recetas = almacenamientoLocal.getObj("recetasPublicadas");
 console.log("recetas pagina",almacenamientoLocal.getObj("recetasPublicadas"));
+
+const handleCategoria = (e) =>{
+    console.log("AAAA");
+    setCategoriaState(e);
+    console.log("EVENTO",e);
+    console.log(categoriaState);
+  }
+  const handleIngredientes = (e) =>{
+    console.log("AAAA");
+    setIngredientesState(e);
+    console.log("EVENTO",e);
+    console.log(ingredientesState);
+  }
+
+  const handleDificultad = (e) =>{
+    console.log("AAAA");
+    setDificultadState(e);
+    console.log("EVENTO",e);
+    console.log(dificultadState);
+  }
+
+const handleFiltrar = async function(e) {
+    e.preventDefault();
+    
+    let validacion = validate();
+    if(validacion){
+        let filtro = {
+            ingredientes: ingredientesState,
+            categoria: categoriaState,
+            dificultad: dificultadState,
+        }
+        let respuesta = await filtrarRecetaController(filtro);
+        if (respuesta.rdo===0 )
+            {
+                console.log("SE FILTRO CARAJO");
+                //setIsSubmit(true);
+                
+                //handleMain();
+                //redirect();
+                navegar('/filtroRecetas');
+            }
+            if (respuesta.rdo===1)
+            {
+                alert(respuesta.mensaje)
+            }
+    }
+    else{
+        console.log("NO FILTRA")
+    }
+}
+
+
+const navegar = useNavigate();
+
+const validate = () =>{
+    let vacio = 0;
+    if(categoriaState){
+        vacio = vacio + 1;
+    }
+
+    if(ingredientesState){
+        vacio = vacio + 1;
+    }
+
+    if(dificultadState){
+        vacio = vacio + 1;
+    }
+    return vacio;
+}
+
  return ( 
      <div>
         <div className='wrapper'>
@@ -81,25 +157,39 @@ console.log("recetas pagina",almacenamientoLocal.getObj("recetasPublicadas"));
                 <div id="barraLateral">
 
                     <div className='dropdowns'>
-                        <DropdownButton id="dropdown-item-button" title="Categoría">
-                            <Dropdown.Item as="button">Cena</Dropdown.Item>
-                            <Dropdown.Item as="button">Merienda</Dropdown.Item>
-                            <Dropdown.Item as="button">Postre</Dropdown.Item>
+                        <DropdownButton id="dropdown-item-button" title="Categoría" name="categoria" onSelect={handleCategoria}>
+                            <Dropdown.Item eventKey="Cena">Cena</Dropdown.Item>
+                            <Dropdown.Item  eventKey="Merienda">Merienda</Dropdown.Item>
+                            <Dropdown.Item eventKey="Postre">Postre</Dropdown.Item>
                         </DropdownButton>
+                        {categoriaState && (
+                        <Form.Label className='text-center' style={{width:"100%"}}> {categoriaState} </Form.Label>
+                        )}
 
                         <br/>
-                        <DropdownButton id="dropdown-item-button" title="Ingrediente">
-                            <Dropdown.Item as="button">Papa</Dropdown.Item>
-                            <Dropdown.Item as="button">Carne</Dropdown.Item>
-                            <Dropdown.Item as="button">Chocolate</Dropdown.Item>
+                        <DropdownButton id="dropdown-item-button" title="Ingrediente" onSelect={handleIngredientes}>
+                            <Dropdown.Item eventKey="Papa">Papa</Dropdown.Item>
+                            <Dropdown.Item eventKey="Carne">Carne</Dropdown.Item>
+                            <Dropdown.Item eventKey="Chocolate">Chocolate</Dropdown.Item>
                         </DropdownButton>
+                        {ingredientesState && (
+                        <Form.Label className='text-center' style={{width:"100%"}}> {ingredientesState} </Form.Label>
+                        )}
 
                         <br/>
-                        <DropdownButton id="dropdown-item-button" title="Dificultad">
-                            <Dropdown.Item as="button">Facil</Dropdown.Item>
-                            <Dropdown.Item as="button">Intermedia</Dropdown.Item>
-                            <Dropdown.Item as="button">Avanzada</Dropdown.Item>
+                        <DropdownButton id="dropdown-item-button" title="Dificultad" onSelect={handleDificultad}>
+                            <Dropdown.Item eventKey="Facil">Facil</Dropdown.Item>
+                            <Dropdown.Item eventKey="Intermedia">Intermedia</Dropdown.Item>
+                            <Dropdown.Item eventKey="Avanzada">Avanzada</Dropdown.Item>
                         </DropdownButton>
+                        {dificultadState && (
+                        <Form.Label className='text-center' style={{width:"100%"}}> {dificultadState} </Form.Label>
+                        )}
+                        
+                        <Button id= "btncrear" variant="primary" type="submit" onClick={handleFiltrar}>
+                            Filtrar
+                        </Button>
+                        
                         
 
                     </div>
