@@ -28,7 +28,7 @@ function App() {
       <Route path='editarPerfil' element={<EditarPerfil />} />
       <Route path='recetaCompleta' element={<RecetaCompleta />} />
       <Route path='recuperoContraseña' element={<RecuperoContraseña />} />
-      <Route path='misRecetas' element={<MisRecetas />} />
+      <Route path='misRecetas' element={<MisRecetas />}/>
       
     </Routes>
   </div>

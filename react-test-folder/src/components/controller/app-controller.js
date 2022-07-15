@@ -1,10 +1,27 @@
 import urlWebServices from "./conf-api";
 
+Storage.prototype.setObj = function(key, obj) {
+    return this.setItem(key, JSON.stringify(obj))
+}
+Storage.prototype.getObj = function(key) {
+    return JSON.parse(this.getItem(key))
+}
+
 export const getLocalStorage = function(){
     return localStorage;
 }
 
-export var localRecetas;
+
+export var localRecetas ;
+
+function setLocalRecetas (recetas){
+    localRecetas = recetas;
+}
+
+export const getLocalRecetas = function(){
+    console.log("RETURN DEL LOCAL",localRecetas);
+    return localRecetas;
+}
 
 export const recetaController = async function (receta){
     let url = urlWebServices.crearReceta;
@@ -18,7 +35,8 @@ export const recetaController = async function (receta){
     formData.append ('procedimiento', receta.procedimiento);
     formData.append('creador',receta.creador);
     formData.append('borrador', receta.borrador);
-    //formData.append ('fotoReceta', receta.fotoreceta);
+    
+    console.log("creador en controller", receta.creador);
 
    try{
     let response = await fetch (url,{
@@ -44,26 +62,6 @@ export const recetaController = async function (receta){
         {
             case 201:
             {
-                localStorage.setItem("titulo",receta.titulo);
-                localStorage.setItem("id",receta._id);
-                localStorage.setItem("categoria", receta.categoria);
-                localStorage.setItem("ingredientes",receta.ingredientes);
-                localStorage.setItem("procedimiento",receta.procedimiento);
-                localStorage.setItem("dificultad",receta.dificultad);
-                localStorage.setItem("duracion",receta.duracion);
-                localStorage.setItem("updated",receta.updated);
-                localStorage.setItem("fotoReceta", receta.fotoreceta);
-
-                console.log("TITULO",receta.titulo);
-                console.log("ID",localStorage.getItem("id"));
-                console.log("CATEGORIA", receta.categoria);
-                console.log("INGREDIENTES", receta.ingredientes);
-                console.log("PROCEDIMIENTO", receta.procedimiento);
-                console.log("DIFICULTAD", receta.dificultad);
-                console.log("DURACION", receta.duracion);
-                console.log("FOTORECETA",localStorage.getItem("fotoReceta"));
-
-                
                 return ({rdo:0,mensaje:"Ok"});//correcto
             }
             default:
@@ -107,9 +105,12 @@ export const misRecetasController = async function(creador){
                 case 201:
                 {
                     let recetas = data.recetasEncontradas;
-                    localRecetas = recetas;
-                    console.log("LOCAL RECETAS",localRecetas);
+                    //localRecetas = recetas;
+                    setLocalRecetas(recetas);
+                    localStorage.setObj("recetas",recetas);
+                    console.log("LOCAL RECETAS",localStorage.getObj("recetas"));
                     return ({rdo:0,mensaje:"Ok"});//correcto
+                    
                 }
                 case 400:
                 {
