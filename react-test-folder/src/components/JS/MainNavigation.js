@@ -33,7 +33,6 @@ return (
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
-                <Nav.Link as={Link} to="/Recetario">Mi Recetario</Nav.Link>
                 <Nav.Link onClick={handleMisRecetas}>Mis Recetas</Nav.Link>
                 <Nav.Link as={Link} to="/crearReceta">Crear</Nav.Link>
                 <NavDropdown title={dataUser.getItem("nombre")} id="basic-nav-dropdown">
