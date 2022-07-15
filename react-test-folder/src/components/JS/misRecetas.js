@@ -32,7 +32,7 @@ function MisRecetas(){
                     <Col md={6} className='columnaMain'>
                     <CardItem 
                     key={card.id}
-                    imagen={slide1}
+                    imagen={card.imagenReceta}
                     titulo={card.titulo}
                     chef={card.creador}
                     dificultad={card.dificultad}

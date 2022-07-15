@@ -35,10 +35,8 @@ export const recetaController = async function (receta){
     formData.append ('procedimiento', receta.procedimiento);
     formData.append('creador',receta.creador);
     formData.append('borrador', receta.borrador);
-    
-    console.log("creador en controller", receta.creador);
     formData.append('imagenReceta', receta.imagenReceta);
-
+    
    try{
     let response = await fetch (url,{
         method: "POST",

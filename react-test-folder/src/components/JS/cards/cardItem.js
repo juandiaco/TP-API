@@ -1,11 +1,13 @@
 import {Form, FormGroup,Button,Navbar,NavDropdown,Nav,Container, Card, Row, Col,ListGroup,ListGroupItem} from 'react-bootstrap';
+import { Cloudinary } from "cloudinary-core";
 
 function CardItem(props){
+const cloudinaryCore = new Cloudinary({cloud_name:'deaivh2un'});
 return(
     <div>
         
         <Card className='cardmain'>
-            <Card.Img className='imagenCard' alt={props.titulo} src={props.imagen}/>
+            <Card.Img className='imagenCard' alt={props.titulo} src={cloudinaryCore.url(props.imagen)}/>
             <Card.Body>
                 <Card.Title>{props.titulo}</Card.Title>
                 <br></br>
