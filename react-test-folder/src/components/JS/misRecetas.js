@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import {Form,section, FormGroup,Button,Navbar,NavDropdown,Nav,Container,Dropdown,DropdownButton,Col,Row,Card, CardImg, InputGroup, FormControl, Carousel} from "react-bootstrap";
 import CardHeader from "react-bootstrap/esm/CardHeader";
 import MainNavigation from "./MainNavigation";
-import CardItem from "./cards/cardItem";
+import MyCardItem from "./cards/myCardItem";
 import {Image} from "cloudinary-react";
 import { Cloudinary } from "cloudinary-core";
 import { misRecetasController, getLocalStorage, getLocalRecetas, localRecetas } from "../controller/app-controller";
@@ -30,7 +30,7 @@ function MisRecetas(){
 
                     {recetas.map((card) => (
                     <Col md={6} className='columnaMain'>
-                    <CardItem 
+                    <MyCardItem 
                     key={card.id}
                     imagen={card.imagenReceta}
                     titulo={card.titulo}

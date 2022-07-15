@@ -204,7 +204,24 @@ export const traerRecetas = async function(){
     };
 }
 
+/* export const deleteRecetaController = async function (receta){
+    let url= urlWebServices.deleteReceta;
+    try{
+        let respone = await fetch (url,{
+            method: "POST",
+            mode:"cors",
+            headers:{
+                'Accept':'application/x-www-form-urlencoded',
+                // 'x-access-token': WebToken.webToken,
+                'Origin':'http://localhost:3000',
+                
+                'Content-Type': 'application/x-www-form-urlencoded'},
+            body: formData,
 
+        })
+    }
+}
+*/
 
 
 
