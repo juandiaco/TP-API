@@ -29,6 +29,7 @@ const navegar = useNavigate();
 const handleVer = function(){
 
     let receta = {
+        chef:props.chef,
         titulo: props.titulo,
         duracion: props.duracion,
         ingredientes: props.ingredientes,
@@ -37,11 +38,12 @@ const handleVer = function(){
         procedimiento: props.procedimiento,
         imagen: props.imagen,
         puntaje: props.puntaje,
+       
     }
 
     recetaTemporal(receta);
     console.log("aaa", receta)
-    navegar('/main');
+    navegar('/recetaCompleta');
 
 }
 

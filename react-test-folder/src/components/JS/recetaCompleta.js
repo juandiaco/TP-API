@@ -1,13 +1,17 @@
 import React from "react";
 import MainNavigation from "./MainNavigation";
 import {Form, Accordion, AccordionButton, AccordionCollapse, FormGroup,Button,Navbar,NavDropdown,Nav,Container, Card, Row, Col,ListGroup,ListGroupItem, Dropdown, DropdownButton,Tab,Tabs} from 'react-bootstrap';
-import { getLocalStorage, traerRecetaCompletaCon } from "../controller/app-controller";
+import { getLocalStorage, recetaTemporal, traerRecetaCompletaCon } from "../controller/app-controller";
+import { Cloudinary } from "cloudinary-core";
 
-let dataRec = getLocalStorage();
-console.log(dataRec.getItem("titulo"));
+
 
 function RecetaCompleta(){
+    const cloudinaryCore = new Cloudinary({cloud_name:'deaivh2un'});
     document.body.style.backgroundColor= "bisque";
+    let almacenamientoLocal = getLocalStorage();
+    let receta = almacenamientoLocal.getObj("recetaTemporal");
+    console.log("recetas pagina",receta);
     return(
         <div className="wrapper">
             <div>
@@ -16,17 +20,17 @@ function RecetaCompleta(){
             <Card className="cardReceta">
                 <Card.Header>
                     <h1>
-                      {dataRec.getItem("titulo")}
+                     {receta.titulo}
                     </h1>
                     <h3>
-                        By: Chefcito
+                        By: {receta.chef}
                     </h3>
                 </Card.Header>
                 <Card.Body>
-                    Categoría: ejemplo, ejemplo2
+                    Categoría: {receta.categoria}
                     <br/>
-                    Dificultad: Avanzado
-                    <Card.Img className="imagenReceta" src="./comidas/cazuelamariscos.jpg" alt="Imagen"/>
+                    Dificultad: {receta.dificultad}
+                    <Card.Img className="imagenReceta" src={receta.imagen} alt="Imagen" alt={receta.titulo} src={cloudinaryCore.url(receta.imagen)}/>
                     <Accordion className="accordionReceta">
                         <Accordion.Item eventKey="0">
                             <Accordion.Header className="tituloAccordion">
@@ -34,9 +38,7 @@ function RecetaCompleta(){
                             </Accordion.Header>
                                 <Accordion.Body> 
                                     <ListGroup>
-                                        <li>Ingrediente 1</li>
-                                        <li>Ingrediente 2</li>
-                                        <li> Ingrediente 3</li>
+                                        <li>{receta.ingredientes}</li>
                                         <br/>
                                     </ListGroup>
                                 </Accordion.Body>
@@ -45,7 +47,7 @@ function RecetaCompleta(){
                             <Accordion.Header>Procedimiento</Accordion.Header>
                             <Accordion.Body>
                                 <ListGroup>
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                                {receta.procedimiento}
                                 </ListGroup>
                             </Accordion.Body>
                         </Accordion.Item>
