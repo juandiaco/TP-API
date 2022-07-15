@@ -39,7 +39,11 @@ function MisRecetas(){
                     chef={card.creador}
                     dificultad={card.dificultad}
                     categoria={card.categoria}
-                    calificacion={card.puntaje}
+                    puntaje={card.puntaje}
+                    duracion={card.duracion}
+                    procedimiento={card.procedimiento}
+                    ingredientes={card.ingredientes}
+
                      />
                     </Col>
                 ))}

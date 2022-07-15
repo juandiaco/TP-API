@@ -1,7 +1,9 @@
 import {Form, FormGroup,Button,Navbar,NavDropdown,Nav,Container, Card, Row, Col,ListGroup,ListGroupItem} from 'react-bootstrap';
 import { Cloudinary } from "cloudinary-core";
 import { useNavigate } from 'react-router-dom';
-import {deleteRecetaController} from '../../controller/app-controller';
+import {deleteRecetaController, recetaTemporal} from '../../controller/app-controller';
+import {localStorage} from '../../controller/app-controller';
+
 function MyCardItem(props){
 const cloudinaryCore = new Cloudinary({cloud_name:'deaivh2un'});
 const handleEliminar = async function(){
@@ -24,6 +26,26 @@ const handleEliminar = async function(){
 
 const navegar = useNavigate();
 
+const handleVer = function(){
+
+    let receta = {
+        titulo: props.titulo,
+        duracion: props.duracion,
+        ingredientes: props.ingredientes,
+        dificultad: props.dificultad,
+        categoria: props.categoria,
+        procedimiento: props.procedimiento,
+        imagen: props.imagen,
+        puntaje: props.puntaje,
+    }
+
+    recetaTemporal(receta);
+    console.log("aaa", receta)
+    navegar('/main');
+
+}
+
+
 return(
     <div>
         
@@ -43,8 +65,8 @@ return(
                     </ListGroup>
                     <Card.Footer className='cardfooter'>
                     <div className='containerbtnver'>
-                    <Button variant="primary" className='btnver'>
-                        <a href="/recetaCompleta"> Ver </a>
+                    <Button variant="primary" className='btnver' onClick={handleVer}>
+                        <a> Ver </a>
                     </Button>
                     <Button variant='primary' className='btnver'>Editar</Button>
                     <Button variant='primary' className='btnver' onClick={handleEliminar}>Eliminar</Button>
