@@ -185,8 +185,9 @@ const validate = () =>{
                         {dificultadState && (
                         <Form.Label className='text-center' style={{width:"100%"}}> {dificultadState} </Form.Label>
                         )}
-                        
-                        <Button id= "btncrear" variant="primary" type="submit" onClick={handleFiltrar}>
+                        <br/>
+                        <br/>
+                        <Button className='text-center' style={{width:"100%"}} id= "btncrear" variant="primary" type="submit" onClick={handleFiltrar}>
                             Filtrar
                         </Button>
                         
