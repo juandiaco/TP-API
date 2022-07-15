@@ -47,6 +47,25 @@ const handleVer = function(){
 
 }
 
+const handleEditar = function(){
+
+    let receta = {
+        titulo: props.titulo,
+        duracion: props.duracion,
+        ingredientes: props.ingredientes,
+        dificultad: props.dificultad,
+        categoria: props.categoria,
+        procedimiento: props.procedimiento,
+        imagen: props.imagen,
+        puntaje: props.puntaje,
+    }
+
+    recetaTemporal(receta);
+    console.log("aaa", receta)
+    navegar('/main');
+
+}
+
 
 return(
     <div>
@@ -70,7 +89,7 @@ return(
                     <Button variant="primary" className='btnver' onClick={handleVer}>
                         <a> Ver </a>
                     </Button>
-                    <Button variant='primary' className='btnver'>Editar</Button>
+                    <Button variant='primary' className='btnver' onClick={handleEditar}>Editar</Button>
                     <Button variant='primary' className='btnver' onClick={handleEliminar}>Eliminar</Button>
                     </div>
                     
