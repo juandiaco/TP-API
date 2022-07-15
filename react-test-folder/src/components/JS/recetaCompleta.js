@@ -1,6 +1,10 @@
 import React from "react";
 import MainNavigation from "./MainNavigation";
 import {Form, Accordion, AccordionButton, AccordionCollapse, FormGroup,Button,Navbar,NavDropdown,Nav,Container, Card, Row, Col,ListGroup,ListGroupItem, Dropdown, DropdownButton,Tab,Tabs} from 'react-bootstrap';
+import { getLocalStorage, traerRecetaCompletaCon } from "../controller/app-controller";
+
+let dataRec = getLocalStorage();
+console.log(dataRec.getItem("titulo"));
 
 function RecetaCompleta(){
     document.body.style.backgroundColor= "bisque";
@@ -12,7 +16,7 @@ function RecetaCompleta(){
             <Card className="cardReceta">
                 <Card.Header>
                     <h1>
-                        Nombre de la Receta
+                      {dataRec.getItem("titulo")}
                     </h1>
                     <h3>
                         By: Chefcito

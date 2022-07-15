@@ -153,7 +153,58 @@ export const misRecetasController = async function(creador){
 
 }
 
+export const traerRecetaCompletaCon = async function(){
+    let url = urlWebServices.traerRecetaCompleta;
+    try{
+        let response = await fetch (url,{
+            method: "GET",
+            mode: "cors",
+            headers:{
+                'creador': localStorage.getItem("id"),
+                'titulo': localStorage.getItem("titulo"),
+                'Accept':'application/x-www-form-urlencoded',
+                'Origin':'http://localhost:3000',
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        });
+        console.log("RESPONSE", response);
+        let respuesta = response.status;
+        let data = await response.json();
+        console.log("jsonresponse",data);
 
+        switch(respuesta)
+            {
+                case 201:
+                {
+                    let recetas = data.recetasEncontradas;
+                    //localRecetas = recetas;
+                    setLocalRecetas(recetas);
+                    localStorage.setObj("recetasPublicadas",recetas);
+                    console.log("CREADOR",localStorage.getItem("titulo"));
+                    return ({rdo:0,mensaje:"Ok"});//correcto
+                    
+                }
+                case 400:
+                {
+                    //error mail
+                    return ({rdo:1,mensaje:"El mail o la contraseña no son correctos."});
+                }
+
+                default:
+                {
+                    //otro error
+                    return ({rdo:1,mensaje:"Ha ocurrido un error"});                
+                }
+            }
+        
+    }
+    
+    catch(error)
+    {
+        console.log("error",error);
+        
+    };
+}
 
 
 export const traerRecetas = async function(){

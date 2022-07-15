@@ -208,6 +208,7 @@ function CrearReceta(){
   }
 
 
+
     return (
         <div> 
           <MainNavigation /> 
@@ -234,14 +235,14 @@ function CrearReceta(){
                   
                 <br/>
 
-                <Form.Group>
+                <Form.Group id="formdif">
                     <Form.Label>Seleccionar Dificultad</Form.Label>
                     <br/>
                     <select value="Seleccionar Dificultad" name='dificultad' onChange={handleChange}>
                       <option value="Seleccionar Dificultad">Seleccionar Dificultad</option>
-                      <option value="Facil">Facil</option>
-                      <option value="Intermedia">Intermedia</option>
-                      <option value="Avanzada">Avanzada</option>
+                      <option id="opd" value="Facil">Facil</option>
+                      <option id="opd" value="Intermedia">Intermedia</option>
+                      <option id="opd" value="Avanzada">Avanzada</option>
                     </select>
                     <p className='errorLogin'>{formErros.dificultad}</p>
                   </Form.Group>
