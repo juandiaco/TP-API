@@ -5,7 +5,7 @@ import { recetaController } from '../controller/app-controller';
 import MainNavigation from './MainNavigation';
 import { getLocalStorage } from '../controller/app-controller';
 import urlWebServices from '../controller/conf-api';
-
+import Footer from './footer';
 
 function CrearReceta(){
 
@@ -293,6 +293,7 @@ function CrearReceta(){
 
                 </Form>
           </div>
+        <Footer />
         </div>
       );
 

@@ -4,6 +4,7 @@ import CardHeader from "react-bootstrap/esm/CardHeader";
 import MainNavigation from "./MainNavigation";
 import MyCardItem from "./cards/myCardItem";
 import CardItem from "./cards/cardItem";
+import Footer from './footer';
 
 import { Cloudinary } from "cloudinary-core";
 import { misRecetasController, getLocalStorage, getLocalRecetas, localRecetas } from "../controller/app-controller";
@@ -56,7 +57,7 @@ function RecetasFiltradas(){
 
             </div>
             
-
+        <Footer />
         </div>
     );
 }

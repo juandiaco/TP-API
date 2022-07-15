@@ -6,9 +6,7 @@ import MyCardItem from "./cards/myCardItem";
 import {Image} from "cloudinary-react";
 import { Cloudinary } from "cloudinary-core";
 import { misRecetasController, getLocalStorage, getLocalRecetas, localRecetas } from "../controller/app-controller";
-const slide1 = require('./slides-carrusel/slideSushi.jpg');
-const slide2 = require('./slides-carrusel/slideComidas.jpg');
-const slide3 = require('./slides-carrusel/slideEnsaladas.jpg');
+import Footer from './footer';
 
 
 function MisRecetas(){
@@ -50,8 +48,9 @@ function MisRecetas(){
                 </Row>
 
             </div>
-            
-
+        <div>
+            <Footer />
+        </div>
         </div>
     );
 }
