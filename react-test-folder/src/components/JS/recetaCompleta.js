@@ -30,7 +30,7 @@ function RecetaCompleta(){
                     Categoría: {receta.categoria}
                     <br/>
                     Dificultad: {receta.dificultad}
-                    <Card.Img className="imagenReceta" src={receta.imagen} alt="Imagen" alt={receta.titulo} src={cloudinaryCore.url(receta.imagen)}/>
+                    <Card.Img className="imagenReceta" alt={receta.titulo} src={cloudinaryCore.url(receta.imagen)}/>
                     <Accordion className="accordionReceta">
                         <Accordion.Item eventKey="0">
                             <Accordion.Header className="tituloAccordion">
