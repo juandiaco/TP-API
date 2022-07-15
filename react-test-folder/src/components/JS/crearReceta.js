@@ -175,6 +175,7 @@ function CrearReceta(){
     let varForm = formValues.categoria;
     console.log("VARFORM",varForm);
     if(e.target.checked){
+
        if(varForm.localeCompare("Nada") !== 0){
 
           console.log("MAAS");
@@ -196,6 +197,14 @@ function CrearReceta(){
     setFormValues({...formValues, categoria: varForm});
     console.log("CHECKBOX", formValues);
     
+  }
+
+  function selectOnlyThis(id){
+    var myCheckbox = document.getElementsByName("myCheckbox");
+    Array.prototype.forEach.call(myCheckbox,function(el){
+      el.checked = false;
+    });
+    id.checked = true;
   }
 
 
@@ -243,10 +252,10 @@ function CrearReceta(){
                     <Form.Label>Seleccionar Categoria</Form.Label>
                     <br/>
 
-                    <Form.Check type="radio" value="Desayuno" label="Desayuno" onChange={handleCheckBox}></Form.Check>
-                    <Form.Check type="radio" value="Almuerzo" label="Almuerzo" onChange={handleCheckBox}></Form.Check>
-                    <Form.Check type="radio" value="Merienda" label="Merienda" onChange={handleCheckBox}></Form.Check>
-                    <Form.Check type="radio" value="Cena" label="Cena" onChange={handleCheckBox}></Form.Check>
+                    <Form.Check type="radio" name="myCheckbox" value="Desayuno" label="Desayuno" onChange={handleCheckBox}></Form.Check>
+                    <Form.Check type="radio" name="myCheckbox"value="Almuerzo" label="Almuerzo" onChange={handleCheckBox}></Form.Check>
+                    <Form.Check type="radio" name="myCheckbox"value="Merienda" label="Merienda" onChange={handleCheckBox}></Form.Check>
+                    <Form.Check type="radio" name="myCheckbox"value="Cena" label="Cena" onChange={handleCheckBox}></Form.Check>
                     <p className='errorLogin'>{formErros.categoria}</p>
                   </Form.Group>
 
