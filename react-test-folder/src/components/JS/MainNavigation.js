@@ -36,15 +36,13 @@ return (
                 <Nav.Link as={Link} to="/Recetario">Mi Recetario</Nav.Link>
                 <Nav.Link onClick={handleMisRecetas}>Mis Recetas</Nav.Link>
                 <Nav.Link as={Link} to="/crearReceta">Crear</Nav.Link>
-                <NavDropdown title="Perfil" id="basic-nav-dropdown">
+                <NavDropdown title={dataUser.getItem("nombre")} id="basic-nav-dropdown">
                     <NavDropdown.Item href="/editarPerfil">Editar Perfil</NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="/Inicio">Cerrar Sesión</NavDropdown.Item>
                 </NavDropdown>
                 </Nav>
-                <Navbar.Text className='justify-content-end'>
-                    <h1 className='text-right'>¡Bienvenido {dataUser.getItem("nombre")}!</h1>
-                </Navbar.Text>
+
             </Navbar.Collapse>
         </Container>
     </Navbar>
