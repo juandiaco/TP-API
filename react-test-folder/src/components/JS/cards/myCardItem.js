@@ -25,6 +25,7 @@ return(
                     <Button variant="primary" className='btnver'>
                         <a href="/recetaCompleta"> Ver </a>
                     </Button>
+                    <Button variant='primary' className='btnver'>Editar</Button>
                     <Button variant='primary' className='btnver'>Eliminar</Button>
                     </div>
                     

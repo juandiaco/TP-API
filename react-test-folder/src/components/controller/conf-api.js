@@ -8,8 +8,7 @@ const urlWebServices = {
     editarUser: urlApi + "editarUser/",
     crearReceta: urlApi + "crearReceta/",
     misRecetas: urlApi + "recetasDeUser/",
-   
-    eliminarReceta: urlApi + "deleteReceta/",
+    eliminarReceta: urlApi + "eliminarReceta/",
     traerRecetas: urlApi + "traerRecetas/",
 }
 
