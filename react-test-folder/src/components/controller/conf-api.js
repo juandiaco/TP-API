@@ -8,11 +8,8 @@ const urlWebServices = {
     editarUser: urlApi + "editarUser/",
     crearReceta: urlApi + "crearReceta/",
     misRecetas: urlApi + "recetasDeUser/",
-<<<<<<< Updated upstream
     eliminarReceta: urlApi + "eliminarReceta/",
-=======
-    eliminarReceta: urlApi + "deleteReceta/",
->>>>>>> Stashed changes
+
     traerRecetas: urlApi + "traerRecetas/",
     filtrarRecetas: urlApi + "filtrarRecetas/",
 }

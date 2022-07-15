@@ -29,9 +29,11 @@ function MisRecetas(){
             <Row className="g-2">
 
                     {recetas.map((card) => (
+                    
                     <Col md={6} className='columnaMain'>
+                    
                     <MyCardItem 
-                    key={card.id}
+                    idReceta={card._id}
                     imagen={card.imagenReceta}
                     titulo={card.titulo}
                     chef={card.creador}

@@ -206,17 +206,19 @@ export const traerRecetas = async function(){
 
 export const deleteRecetaController = async function (receta){
     let url = urlWebServices.eliminarReceta;
-
+    const formData = new URLSearchParams();
+    formData.append('_id',receta);
     try{
         let response = await fetch (url,{
             method: "DELETE",
             mode:"cors",
             headers:{
                 'Accept':'application/x-www-form-urlencoded',
-                // 'x-access-token': WebToken.webToken,
+                'x-access-token': localStorage.getItem("x"),
                 'Origin':'http://localhost:3000',
                 
                 'Content-Type': 'application/x-www-form-urlencoded'},
+            body: formData,
         })
         console.log("RESPONSE", response);
         let respuesta = response.status;
@@ -227,7 +229,7 @@ export const deleteRecetaController = async function (receta){
         switch(respuesta){
             case 201:
                 {
-                    localStorage.removeItem("categoria", receta._id);
+                    
                     
                     return ({rdo:0,mensaje:"Ok"});//correcto
                 }
