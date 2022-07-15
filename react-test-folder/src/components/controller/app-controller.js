@@ -18,8 +18,7 @@ export const recetaController = async function (receta){
     formData.append ('procedimiento', receta.procedimiento);
     formData.append('creador',receta.creador);
     formData.append('borrador', receta.borrador);
-    formData.append('fotoReceta', receta.fotoreceta);
-    //formData.append ('fotoReceta', receta.fotoreceta);
+    formData.append('imagenReceta', receta.imagenReceta);
 
    try{
     let response = await fetch (url,{
@@ -53,7 +52,7 @@ export const recetaController = async function (receta){
                 localStorage.setItem("dificultad",receta.dificultad);
                 localStorage.setItem("duracion",receta.duracion);
                 localStorage.setItem("updated",receta.updated);
-                localStorage.setItem("fotoReceta", receta.fotoreceta);
+                localStorage.setItem("imagenReceta", receta.imagenReceta);
 
                 console.log("TITULO",receta.titulo);
                 console.log("ID",localStorage.getItem("id"));
@@ -62,7 +61,7 @@ export const recetaController = async function (receta){
                 console.log("PROCEDIMIENTO", receta.procedimiento);
                 console.log("DIFICULTAD", receta.dificultad);
                 console.log("DURACION", receta.duracion);
-                console.log("FOTORECETA",localStorage.getItem("fotoReceta"));
+                console.log("IMAGENRECETA",localStorage.getItem("imagenReceta"));
 
                 
                 return ({rdo:0,mensaje:"Ok"});//correcto

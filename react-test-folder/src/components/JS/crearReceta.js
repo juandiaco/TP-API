@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { recetaController } from '../controller/app-controller';
 import MainNavigation from './MainNavigation';
 import { getLocalStorage } from '../controller/app-controller';
+import urlWebServices from '../controller/conf-api';
 
 
 function CrearReceta(){
@@ -14,14 +15,14 @@ function CrearReceta(){
   const [fileInputState, setFileInputState] = useState('');
   const [selectedFile, setSelectedFile] = useState('');
   const [previewSource, setPreviewSource] = useState('');
-  const reader = new FileReader();
-  const initialValues = {titulo: "", duracion:"", ingredientes: "", dificultad: "", categoria: "Nada", procedimiento: "", borrador: ""};
+  const initialValues = {titulo: "", duracion:"", ingredientes: "", dificultad: "", categoria: "Nada", procedimiento: "", borrador: "", imagen: ""};
   const [formValues, setFormValues] = useState(initialValues);
   const [formErros, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
   const [categorias, setCategorias] = useState("");
 
-  const previeFile = (file) =>{
+  const previewFile = (file) =>{
+    const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = () =>{
       setPreviewSource(reader.result);
@@ -34,7 +35,7 @@ function CrearReceta(){
 
   const handleFileInputChange=(e) => {
     const file = e.target.files[0];
-    previeFile(file);
+    previewFile(file);
     convertirImagen()
   }
 
@@ -66,7 +67,8 @@ function CrearReceta(){
           dificultad: formValues.dificultad,
           procedimiento: formValues.procedimiento,
           borrador: true,
-          creador: localStorage.getItem("id")
+          creador: localStorage.getItem("id"),
+          imagenReceta: previewSource,
 
           
         }
@@ -103,7 +105,7 @@ function CrearReceta(){
         procedimiento: formValues.procedimiento,
         borrador: false,
         creador: localStorage.getItem("id"),
-        fotoReceta: previewSource
+        imagenReceta: previewSource
 
         
       }
@@ -227,10 +229,10 @@ function CrearReceta(){
                     <Form.Label>Seleccionar Categoria</Form.Label>
                     <br/>
 
-                    <Form.Check value="Desayuno" label="Desayuno" onChange={handleCheckBox}></Form.Check>
-                    <Form.Check value="Almuerzo" label="Almuerzo" onChange={handleCheckBox}></Form.Check>
-                    <Form.Check value="Merienda" label="Merienda" onChange={handleCheckBox}></Form.Check>
-                    <Form.Check value="Cena" label="Cena" onChange={handleCheckBox}></Form.Check>
+                    <Form.Check type="radio" value="Desayuno" label="Desayuno" onChange={handleCheckBox}></Form.Check>
+                    <Form.Check type="radio" value="Almuerzo" label="Almuerzo" onChange={handleCheckBox}></Form.Check>
+                    <Form.Check type="radio" value="Merienda" label="Merienda" onChange={handleCheckBox}></Form.Check>
+                    <Form.Check type="radio" value="Cena" label="Cena" onChange={handleCheckBox}></Form.Check>
                     <p className='errorLogin'>{formErros.categoria}</p>
                   </Form.Group>
 
@@ -250,7 +252,10 @@ function CrearReceta(){
                     <br/>
 
                     <Form.Label className='mb-3' for="customFile"> Subi una foto </Form.Label>
-                    <Form.Control type="file" id="customFile" name="imagenReceta" value={fileInputState} onChange={handleFileInputChange} />
+                    <Form.Control type="file" id="customFile" name="imagen" value={fileInputState} onChange={handleFileInputChange} />
+                    {previewSource && (
+                        <img src={previewSource} style={{height: '370px'}} alt="Foto"/>
+                    )}
 
                     <br/>
                     
