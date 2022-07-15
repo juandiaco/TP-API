@@ -8,6 +8,7 @@ const urlWebServices = {
     editarUser: urlApi + "editarUser/",
     crearReceta: urlApi + "crearReceta/",
     misRecetas: urlApi + "recetasDeUser/",
+    misRecetas: urlApi + "traerRecetas/",
 }
 
 export default urlWebServices;

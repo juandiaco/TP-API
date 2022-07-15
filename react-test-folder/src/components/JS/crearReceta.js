@@ -94,24 +94,38 @@ function CrearReceta(){
 
   const handlePublicar = async function (e) {
     e.preventDefault();
-    setFormErrors(validate(formValues));
-    if (Object.keys(formErros).length === 0){
-      let receta ={
-        titulo: formValues.titulo,
-        categoria: categorias,
-        ingredientes: formValues.ingredientes,
-        duracion: formValues.duracion,
-        dificultad: formValues.dificultad,
-        procedimiento: formValues.procedimiento,
-        borrador: false,
-        creador: localStorage.getItem("id"),
-        imagenReceta: previewSource
+      setFormErrors(validate(formValues));
+      if (Object.keys(formErros).length === 0){
+        let receta ={
+          titulo: formValues.titulo,
+          categoria: categorias,
+          ingredientes: formValues.ingredientes,
+          duracion: formValues.duracion,
+          dificultad: formValues.dificultad,
+          procedimiento: formValues.procedimiento,
+          borrador: false,
+          creador: localStorage.getItem("id"),
+          imagenReceta: previewSource,
 
-        
+          
+        }
+        console.log("RECETA",receta);
+        let creacion = await recetaController(receta);
+        if (creacion.rdo===0 )
+            {
+                console.log("SE CREO RECETA CARAJO");
+                //setIsSubmit(true);
+                
+                //handleMain();
+                //redirect();
+                navegar('/main');
+            }
+            if (creacion.rdo===1)
+            {
+                alert(creacion.mensaje)
+            }
+             
       }
-      console.log("RECETA",receta);
-    }
-    
 }
 
 

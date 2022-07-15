@@ -2,6 +2,7 @@ import { Carousel } from 'bootstrap';
 import { Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
+
 const slide1 = require('./slides-carrusel/slideSushi.jpg');
 const slide2 = require('./slides-carrusel/slideComidas.jpg');
 const slide3 = require('./slides-carrusel/slideEnsaladas.jpg');
@@ -9,6 +10,7 @@ const slide3 = require('./slides-carrusel/slideEnsaladas.jpg');
 
 function Inicio(){
     document.body.style.backgroundColor = "#0E9594";
+
     return (
     <div>    
         <header>

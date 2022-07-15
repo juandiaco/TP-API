@@ -8,7 +8,7 @@ import MainNavigation from './MainNavigation';
 import CardItem from './cards/cardItem';
 import editarPerfil from './editarPerfil';
 import Footer from './footer';
-
+import { traerRecetas, getLocalStorage } from '../controller/app-controller';
 
 
 
@@ -69,6 +69,9 @@ const lista = [
 
 function Main(){
 document.body.style.backgroundColor= "bisque";
+let almacenamientoLocal = getLocalStorage();
+let recetas = almacenamientoLocal.getObj("recetas");
+console.log("recetas pagina",recetas);
  return ( 
      <div>
         <div className='wrapper'>
@@ -104,22 +107,7 @@ document.body.style.backgroundColor= "bisque";
                 
                 <div>
                     
-                <Row className="g-2">
 
-                    {lista.map((card) => (
-                    <Col md={6} className='columnaMain'>
-                    <CardItem 
-                    key={card.id}
-                    imagen={card.imagen}
-                    titulo={card.titulo}
-                    chef={card.chef}
-                    descripcion={card.descripcion}
-                    dificultad={card.dificultad}
-                    categoria={card.categoria}
-                    calificacion={card.calificacion} />
-                    </Col>
-                ))}
-                </Row>
                 </div>
                 </div>
                 </div>
