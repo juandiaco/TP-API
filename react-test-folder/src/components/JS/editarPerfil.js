@@ -47,7 +47,7 @@ function EditarPerfil(){
             let edicion = await editController(userTemporal);
             if (edicion.rdo===0 )
             {
-                console.log("SE EDITO CARAJO");
+                console.log("SE EDITO");
 
             }
             if (edicion.rdo===1)

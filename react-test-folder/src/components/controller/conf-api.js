@@ -12,6 +12,7 @@ const urlWebServices = {
     traerRecetaCompleta: urlApi + "traerRecetaCompleta/",
     traerRecetas: urlApi + "traerRecetas/",
     filtrarRecetas: urlApi + "filtrarRecetas/",
+    editarReceta: urlApi + "editarReceta/",
 }
 
 export default urlWebServices;

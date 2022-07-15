@@ -310,6 +310,70 @@ export const filtrarRecetaController = async function (filtros){
 
 }
 
+export const editReceta = async function (receta){
+
+    let url = urlWebServices.editarReceta;
+    const formData = new URLSearchParams();
+    formData.append('_id', receta._id);
+    formData.append('procedimiento', receta.procedimiento);
+    formData.append("categoria",receta.categoria);
+    formData.append("ingredientes",receta.ingredientes);
+    formData.append("dificultad",receta.dificultad);
+    
+    console.log("Usuario en controller",receta);
+
+    try{
+        let response = await fetch(url,{
+            method: "PUT",
+            mode:"cors",
+            headers:{
+                'Accept':'application/x-www-form-urlencoded',
+                'x-access-token': localStorage.getItem("x"),
+                'Origin':'http://localhost:3000',
+                
+                'Content-Type': 'application/x-www-form-urlencoded'},
+            body: formData,
+        });
+        console.log("RESPONSE",response);
+        let respuesta = response.status;
+        //console.log("response", respuesta);
+        
+        let data = await response.json();
+        console.log("jsonresponse",data);
+        
+        switch(respuesta)
+            {
+                case 201:
+                {
+                    
+                    
+                    
+                    return ({rdo:0,mensaje:"Ok"});//correcto
+                }
+                case 400:
+                {
+                    //error mail
+                    return ({rdo:1,mensaje:"Hubo un error"});
+                }
+                default:
+                    {
+                        return({rdo:1,mensaje:"Hubo un error"})
+                    }
+
+            }
+    }
+    catch(error)
+    
+    {
+        console.log("error",error);
+    };
+
+}
+
+
+
+
+
 
 
 

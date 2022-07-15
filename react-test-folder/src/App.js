@@ -13,6 +13,7 @@ import RecetaCompleta from './components/JS/recetaCompleta';
 import RecuperoContraseña from './components/JS/recuperoContraseña';
 import MisRecetas from './components/JS/misRecetas';
 import RecetasFiltradas from './components/JS/recetasFiltradas';
+import RecetaEditar from './components/JS/recetaEditar';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
       <Route path='recuperoContraseña' element={<RecuperoContraseña />} />
       <Route path='misRecetas' element={<MisRecetas />}/>
       <Route path='filtroRecetas' element={<RecetasFiltradas />}/>
+      <Route path='editReceta' element={<RecetaEditar />}/>
       
     </Routes>
   </div>

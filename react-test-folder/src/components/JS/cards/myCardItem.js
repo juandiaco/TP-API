@@ -58,11 +58,12 @@ const handleEditar = function(){
         procedimiento: props.procedimiento,
         imagen: props.imagen,
         puntaje: props.puntaje,
+        _id: props.idReceta,
     }
 
     recetaTemporal(receta);
     console.log("aaa", receta)
-    navegar('/main');
+    navegar('/editReceta');
 
 }
 
